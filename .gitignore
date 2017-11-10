@@ -1,0 +1,10 @@
+# Ignore emacs stuff
+*~
+\#*\#
+
+# Ignore python stuff
+*.pyc
+*.egg-info
+*.cache
+*.idea
+.ipynb_checkpoints
