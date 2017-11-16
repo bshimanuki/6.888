@@ -189,3 +189,5 @@ class PSumWrNoC(Module):
                     # print "---- Finished psum iteration: %d ----" % self.iteration
                     # self.glb.dump()
                     self.iteration += 1
+                    if self.iteration == self.num_iteration:
+                        self.iteration = 0

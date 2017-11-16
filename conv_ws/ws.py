@@ -11,7 +11,7 @@ class WSArch(Module):
     def instantiate(self, arr_x, arr_y,
             input_chn, output_chn,
             chn_per_word,
-            ifmap_glb_depth, psum_glb_depth):
+            ifmap_glb_depth, psum_glb_depth, weights_glb_depth):
         # PE static configuration (immutable)
         self.name = 'chip'
         self.arr_x = arr_x
@@ -28,12 +28,14 @@ class WSArch(Module):
         self.ifmap_wr_chn = Channel()
         self.psum_wr_chn = Channel()
         self.weights_wr_chn = Channel()
+        self.psum_chn = Channel(32)
+
         self.deserializer = InputDeserializer(self.input_chn, self.ifmap_wr_chn,
-                self.weights_wr_chn, self.psum_wr_chn, arr_x, arr_y,
+                self.weights_wr_chn, self.psum_wr_chn, self.psum_chn, arr_x, arr_y,
                 chn_per_word)
 
         self.psum_output_chn = Channel()
-        self.serializer = OutputSerializer(self.output_chn, self.psum_output_chn)
+        self.serializer = OutputSerializer(self.output_chn, self.psum_output_chn, self.psum_chn, self.arr_x, self.arr_y, self.chn_per_word)
 
         # Instantiate GLB and GLB channels
         self.ifmap_rd_chn = Channel(3)
@@ -45,8 +47,8 @@ class WSArch(Module):
         self.psum_glb = PSumGLB(self.psum_wr_chn, self.psum_noc_wr_chn, self.psum_rd_chn,
                 psum_glb_depth, chn_per_word)
 
-        self.weights_rd_chn = Channel()
-        self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn)
+        self.weights_rd_chn = Channel(3)
+        self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn, weights_glb_depth, chn_per_word)
 
         # PE Array and local channel declaration
         self.pe_array = ModuleList()
@@ -82,15 +84,21 @@ class WSArch(Module):
         self.psum_rd_noc = PSumRdNoC(self.psum_rd_chn, self.pe_psum_chns[0], self.chn_per_word)
         self.psum_wr_noc = PSumWrNoC(self.pe_psum_chns[-1], self.psum_noc_wr_chn, self.psum_output_chn, self.chn_per_word)
 
-    def configure(self, image_size, filter_size, in_chn, out_chn):
+    def configure(self, image_size, filter_size, in_chn, out_chn, full_in_chn, full_out_chn):
+        full_in_sets = full_in_chn//self.chn_per_word
+        full_out_sets = full_out_chn//self.chn_per_word
         in_sets = self.arr_y//self.chn_per_word
         out_sets = self.arr_x//self.chn_per_word
+        tile_ins = full_in_sets//in_sets
+        tile_outs = full_out_sets//out_sets
         fmap_per_iteration = image_size[0]*image_size[1]
         num_iteration = filter_size[0]*filter_size[1]
 
-        self.deserializer.configure(image_size)
-        self.ifmap_glb.configure(image_size, filter_size, in_sets, fmap_per_iteration)
+        self.deserializer.configure(image_size, filter_size, full_in_sets, tile_ins, tile_outs)
+        self.serializer.configure(image_size, tile_ins, tile_outs)
+        self.ifmap_glb.configure(image_size, filter_size, in_sets, full_in_sets, fmap_per_iteration)
         self.psum_glb.configure(filter_size, out_sets, fmap_per_iteration)
+        self.weights_glb.configure(filter_size, in_sets, out_sets)
         self.filter_noc.configure(in_sets, self.arr_x)
         self.ifmap_noc.configure(in_sets)
         self.psum_rd_noc.configure(out_sets)
