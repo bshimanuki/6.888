@@ -73,12 +73,22 @@ class InputSerializer(Module):
                         cmin = self.curr_set*self.chn_per_word
                         cmax = cmin + self.chn_per_word
                         # Write ifmap to glb
-                        data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ])
+                        if cmax > len(self.ifmap[x, y]):
+                            num_zeros = cmax - len(self.ifmap[x, y])
+                            cmax = len(self.ifmap[x, y])
+                            data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ] + [0] * num_zeros)
+                        else:
+                            data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ])
                     else:
                         cmin = self.tile_out*self.arr_x + self.curr_set*self.chn_per_word
                         cmax = cmin + self.chn_per_word
                         # Write bias to glb
-                        data = np.array([ self.bias[c] for c in range(cmin, cmax) ])
+                        if cmax > len(self.bias):
+                            num_zeros = cmax - len(self.bias)
+                            cmax = len(self.bias)
+                            data = np.array([ self.bias[c] for c in range(cmin, cmax) ] + [0] * num_zeros)
+                        else:
+                            data = np.array([ self.bias[c] for c in range(cmin, cmax) ])
                     self.arch_input_chn.push(data)
                     self.curr_set += 1
 
@@ -106,8 +116,16 @@ class InputSerializer(Module):
                 cmin = self.tile_in*self.arr_y + self.curr_set*self.chn_per_word
                 cmax = cmin + self.chn_per_word
                 filter_out = self.tile_out * self.arr_x + self.curr_filter
-                data = np.array([self.weights[f_x, f_y, c, filter_out] \
-                        for c in range(cmin, cmax) ])
+                if filter_out >= len(self.weights[f_x, f_y, cmin]):
+                    data = np.array([0] * (cmax - cmin))
+                elif cmax > len(self.weights[f_x, f_y]):
+                    num_zeros = cmax - len(self.weights[f_x, f_y])
+                    cmax = len(self.weights[f_x, f_y])
+                    data = np.array([self.weights[f_x, f_y, c, filter_out] \
+                            for c in range(cmin, cmax) ] + [0] * num_zeros)
+                else:
+                    data = np.array([self.weights[f_x, f_y, c, filter_out] \
+                            for c in range(cmin, cmax) ])
 
                 self.arch_input_chn.push(data)
                 self.curr_set += 1
@@ -337,7 +355,7 @@ class OutputDeserializer(Module):
 
             if self.curr_set < out_sets:
                 cmin = self.tile_out*self.arr_x + self.curr_set*self.chn_per_word
-                cmax = cmin + self.chn_per_word
+                cmax = min(cmin + self.chn_per_word, len(self.ofmap[x, y]))
                 for c in range(cmin, cmax):
                     self.ofmap[x, y, c] = data[c-cmin]
             self.curr_set += 1
@@ -354,8 +372,8 @@ class OutputDeserializer(Module):
                     if np.all(self.ofmap == self.reference):
                         raise Finish("Success")
                     else:
-                        print(self.ofmap)
-                        print(self.reference)
-                        print(self.ofmap-self.reference)
+                        #  print(self.ofmap)
+                        #  print(self.reference)
+                        #  print(self.ofmap-self.reference)
                         raise Finish("Validation Failed")
 

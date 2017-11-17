@@ -1,5 +1,6 @@
 from scipy.signal import correlate2d
 import numpy as np
+import math
 
 from nnsim.module import Module
 from nnsim.channel import Channel
@@ -46,8 +47,8 @@ class Stimulus(Module):
         # Reference Output
         reference = conv(ifmap, weights, bias)
 
-        tile_ins = in_chn // self.arr_y
-        tile_outs =  out_chn // self.arr_x
+        tile_ins = int(math.ceil(float(in_chn) / self.arr_y))
+        tile_outs = int(math.ceil(float(out_chn) / self.arr_x))
 
         self.serializer.configure(ifmap, weights, bias, image_size, filter_size, tile_ins, tile_outs)
         self.deserializer.configure(ofmap, reference, image_size, tile_ins, tile_outs)

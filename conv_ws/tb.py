@@ -2,16 +2,23 @@ from nnsim.module import Module
 from nnsim.channel import Channel
 from .ws import WSArch
 from .stimulus import Stimulus
+import math
 
 class WSArchTB(Module):
     def instantiate(self):
         self.name = 'tb'
+
         self.image_size = (4, 4)
         self.filter_size = (3, 3)
-        self.full_in_chn = 8
-        self.full_out_chn = 16
+        self.full_in_chn = 7
+        self.full_out_chn = 15
+
         self.in_chn = 4
         self.out_chn = 8
+
+        self.ceil_in_chn = int(math.ceil(float(self.full_in_chn) / self.in_chn)) * self.in_chn
+        self.ceil_out_chn = int(math.ceil(float(self.full_out_chn) / self.out_chn)) * self.out_chn
+
         self.chn_per_word = 4
 
         self.arr_x = self.out_chn
@@ -21,7 +28,7 @@ class WSArchTB(Module):
         self.output_chn = Channel()
 
         ifmap_glb_depth = self.image_size[0]*self.image_size[1]* \
-                self.full_in_chn//self.chn_per_word
+                self.ceil_in_chn//self.chn_per_word
         psum_glb_depth = self.image_size[0]*self.image_size[1]* \
                 self.out_chn//self.chn_per_word
         weights_glb_depth = self.filter_size[0]*self.filter_size[1]* \
@@ -38,5 +45,5 @@ class WSArchTB(Module):
     def tick(self):
         if not self.configuration_done:
             self.stimulus.configure(self.image_size, self.filter_size, self.full_in_chn, self.full_out_chn)
-            self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.full_in_chn, self.full_out_chn)
+            self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.ceil_in_chn, self.ceil_out_chn)
             self.configuration_done = True
