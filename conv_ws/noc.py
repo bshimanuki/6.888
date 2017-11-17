@@ -37,7 +37,7 @@ class WeightsNoC(Module):
                 self.raw_stats['noc_multicast'] += len(data)
                 # print "filter_to_pe: ", self.curr_filter, data
                 for y in range(ymin, ymax):
-                    self.wr_chns[y][self.curr_filter].push(data[y])
+                    self.wr_chns[y][self.curr_filter].push(data[y - ymin])
 
                 self.curr_set += 1
                 if self.curr_set == self.filter_sets:

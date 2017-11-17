@@ -73,20 +73,26 @@ class InputSerializer(Module):
                         cmin = self.curr_set*self.chn_per_word
                         cmax = cmin + self.chn_per_word
                         # Write ifmap to glb
-                        if cmax > len(self.ifmap[x, y]):
-                            num_zeros = cmax - len(self.ifmap[x, y])
-                            cmax = len(self.ifmap[x, y])
-                            data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ] + [0] * num_zeros)
+                        if cmax > self.ifmap.shape[2]:
+                            num_zeros = cmax - self.ifmap.shape[2]
+                            if num_zeros > cmax - cmin:
+                                data = [0] * (cmax - cmin)
+                            else:
+                                cmax = len(self.ifmap[x, y])
+                                data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ] + [0] * num_zeros)
                         else:
                             data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ])
                     else:
                         cmin = self.tile_out*self.arr_x + self.curr_set*self.chn_per_word
                         cmax = cmin + self.chn_per_word
                         # Write bias to glb
-                        if cmax > len(self.bias):
-                            num_zeros = cmax - len(self.bias)
-                            cmax = len(self.bias)
-                            data = np.array([ self.bias[c] for c in range(cmin, cmax) ] + [0] * num_zeros)
+                        if cmax > self.bias.shape[0]:
+                            num_zeros = cmax - self.bias.shape[0]
+                            if num_zeros > cmax - cmin:
+                                data = [0] * (cmax - cmin)
+                            else:
+                                cmax = len(self.bias)
+                                data = np.array([ self.bias[c] for c in range(cmin, cmax) ] + [0] * num_zeros)
                         else:
                             data = np.array([ self.bias[c] for c in range(cmin, cmax) ])
                     self.arch_input_chn.push(data)
@@ -116,13 +122,16 @@ class InputSerializer(Module):
                 cmin = self.tile_in*self.arr_y + self.curr_set*self.chn_per_word
                 cmax = cmin + self.chn_per_word
                 filter_out = self.tile_out * self.arr_x + self.curr_filter
-                if filter_out >= len(self.weights[f_x, f_y, cmin]):
+                if filter_out >= self.weights.shape[3]:
                     data = np.array([0] * (cmax - cmin))
-                elif cmax > len(self.weights[f_x, f_y]):
+                elif cmax > self.weights.shape[2]:
                     num_zeros = cmax - len(self.weights[f_x, f_y])
-                    cmax = len(self.weights[f_x, f_y])
-                    data = np.array([self.weights[f_x, f_y, c, filter_out] \
-                            for c in range(cmin, cmax) ] + [0] * num_zeros)
+                    if num_zeros > cmax - cmin:
+                        data = np.array([0] * (cmax - cmin))
+                    else:
+                        cmax = len(self.weights[f_x, f_y])
+                        data = np.array([self.weights[f_x, f_y, c, filter_out] \
+                                for c in range(cmin, cmax) ] + [0] * num_zeros)
                 else:
                     data = np.array([self.weights[f_x, f_y, c, filter_out] \
                             for c in range(cmin, cmax) ])
