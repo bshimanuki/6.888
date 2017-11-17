@@ -40,9 +40,3 @@ class WSArchTB(Module):
             self.stimulus.configure(self.image_size, self.filter_size, self.full_in_chn, self.full_out_chn)
             self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.full_in_chn, self.full_out_chn)
             self.configuration_done = True
-
-
-if __name__ == "__main__":
-    from nnsim.simulator import run_tb
-    ws_tb = WSArchTB()
-    run_tb(ws_tb, verbose=False)
