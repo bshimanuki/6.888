@@ -30,6 +30,9 @@ class IFMapGLB(Module):
 
     def configure(self, image_size, filter_size, fmap_sets, full_fmap_sets, fmap_per_iteration):
         self.wr_done = False
+        self.curr_set = 0
+        self.fmap_idx = 0
+        self.iteration = 0
 
         self.image_size = image_size
         self.filter_size = filter_size
