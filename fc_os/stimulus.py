@@ -1,9 +1,7 @@
 from scipy.signal import correlate2d
 import numpy as np
-import math
 
 from nnsim.module import Module
-from nnsim.channel import Channel
 from .serdes import InputSerializer, OutputDeserializer
 
 def conv(x, W, b):
@@ -33,8 +31,13 @@ class Stimulus(Module):
             self.arr_y, self.chn_per_word)
 
     def configure(self, image_size, filter_size, in_chn, out_chn):
+        # Test data
+        #  ifmap = np.zeros((image_size[0], image_size[1],
+            #  in_chn)).astype(np.int64)
         ifmap = np.random.normal(0, 10, (image_size[0], image_size[1],
             in_chn)).astype(np.int64)
+        # ifmap = np.random.normal(0, 10, (image_size[0], image_size[1],
+        #     in_chn)).astype(np.int64)
         weights = np.random.normal(0, 10, (filter_size[0], filter_size[1], in_chn,
             out_chn)).astype(np.int64)
         bias = np.random.normal(0, 10, out_chn).astype(np.int64)
@@ -43,9 +46,7 @@ class Stimulus(Module):
 
         # Reference Output
         reference = conv(ifmap, weights, bias)
+        #  print(reference)
 
-        tile_ins = int(math.ceil(float(in_chn) / self.arr_y))
-        tile_outs = int(math.ceil(float(out_chn) / self.arr_x))
-
-        self.serializer.configure(ifmap, weights, bias, image_size, filter_size, tile_ins, tile_outs)
-        self.deserializer.configure(ofmap, reference, image_size, tile_ins, tile_outs)
+        self.serializer.configure(ifmap, weights, bias, image_size, filter_size)
+        self.deserializer.configure(ofmap, reference, image_size)
