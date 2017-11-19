@@ -10,113 +10,85 @@ class InputSerializer(Module):
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word
-        
+
         self.arch_input_chn = arch_input_chn
 
         self.ifmap = None
         self.weights = None
         self.bias = None
 
-        self.image_size = (0, 0)
-        self.filter_size = (0, 0)
-
         self.ifmap_done = True
         self.bias_done = True
-        self.pass_done = Reg(False)
+        self.pass_done = True
 
         # State Counters
         self.curr_set = 0
-        self.curr_bias = 0
-        self.curr_filter = 0
-        self.iteration = 0
-        self.fmap_idx = 0
+        self.bset = 0
+        self.wset = 0
+        self.curr_i = 0
+        self.curr_o = 0
+        self.curr_batch = 0
 
-    def configure(self, ifmap, weights, bias, image_size, filter_size):
+    def configure(self, ifmap, weights, bias):
         self.ifmap = ifmap
         self.weights = weights
         self.bias = bias
 
-        self.image_size = image_size
-        self.filter_size = filter_size
+        self.batch_size = ifmap.shape[0]
+        self.input_size = ifmap.shape[1]
+        self.output_size = bias.shape[0]
 
         self.ifmap_done = False
         self.bias_done = False
-        self.pass_done.wr(False)
+        self.pass_done = False
+
+        # State Counters
+        self.curr_set = 0
+        self.bset = 0
+        self.wset = 0
+        self.curr_i = 0
+        self.curr_o = 0
+        self.curr_batch = 0
 
     def tick(self):
-        if self.pass_done.rd():
-            return
-
-        in_sets = self.arr_y//self.chn_per_word
-        out_sets = self.arr_x//self.chn_per_word
-        fmap_per_iteration = self.image_size[0]*self.image_size[1]
-        num_iteration = self.filter_size[0]*self.filter_size[1]
-
-        if not self.bias_done:
+        if not self.ifmap_done:
             if self.arch_input_chn.vacancy():
-                cmin = self.curr_bias * self.chn_per_word
-                cmax = cmin + self.chn_per_word
-                data = np.array([ self.bias[c] for c in range(cmin, cmax) ])
+                bmin = self.curr_batch + self.bset * self.chn_per_word
+                bmax = bmin + self.chn_per_word
+                data = np.array([self.ifmap[b, self.curr_set] for b in range(bmin, bmax)])
                 self.arch_input_chn.push(data)
-                self.curr_bias += 1
-                if self.curr_bias == out_sets:
-                    self.curr_bias = 0
-                    self.bias_done = True
-        elif not self.ifmap_done:
-            if self.arch_input_chn.vacancy():
-                # print "input append"
-                # different order
 
-                x = self.fmap_idx % self.image_size[0]
-                y = self.fmap_idx // self.image_size[0]
-
-                #  cmin = self.curr_set*self.chn_per_word
-                #  cmax = cmin + self.chn_per_word
-                xmin = self.fmap_idx
-                xmax = self.fmap_idx + self.chn_per_word
-                # Write ifmap to glb
-                # fix ordering to be x first
-                #  data = np.array([ self.ifmap[x, y, c] for c in range(cmin, cmax) ])
-                data = np.array([ self.ifmap[x, y, self.curr_set] for x in range(xmin, xmax) ])
-                #  print(x, y, self.curr_set)
-                self.arch_input_chn.push(data)
-                self.fmap_idx += self.chn_per_word
-                #  self.curr_set += 1
-
-                #  if self.curr_set == in_sets:
-                    #  self.curr_set = 0
-                    #  self.fmap_idx += 1
-                if self.fmap_idx == fmap_per_iteration:
-                    self.fmap_idx = 0
+                self.bset += 1
+                if self.bset == self.arr_y // self.chn_per_word:
+                    self.bset = 0
                     self.curr_set += 1
-                if self.curr_set == self.arr_y:
-                    self.curr_set = 0
-                    self.ifmap_done = True
-                #  if self.fmap_idx == fmap_per_iteration:
-                    #  self.fmap_idx = 0
-                    #  self.ifmap_done = True
-        else:
-            f_x = self.iteration % self.filter_size[0]
-            f_y = self.iteration // self.filter_size[0]
-
-            # Push filters to PE columns. (PE is responsible for pop)
-            #  if self.arch_input_chn.vacancy() and self.iteration < num_iteration:
-            if self.arch_input_chn.vacancy() and self.curr_filter < self.arr_y:
-                cmin = self.curr_set*self.chn_per_word
-                cmax = cmin + self.chn_per_word
-                data = np.array([self.weights[f_x, f_y, self.curr_filter, c] \
-                        for c in range(cmin, cmax) ])
-
+                    if self.curr_set == self.input_size:
+                        self.curr_set = 0
+                        self.curr_batch += self.arr_y
+                        if self.curr_batch >= self.batch_size:
+                            self.curr_batch = 0
+                            self.ifmap_done = True
+        elif not self.pass_done:
+            if self.arch_input_chn.vacancy():
+                omin = self.curr_o + self.wset * self.chn_per_word
+                omax = omin + self.chn_per_word
+                if self.curr_i == 0:
+                    data = np.array([self.bias[o] for o in range(omin, omax)])
+                else:
+                    curr_i = self.curr_i - 1
+                    data = np.array([self.weights[curr_i, o] for o in range(omin, omax)])
                 self.arch_input_chn.push(data)
-                self.curr_set += 1
-                if self.curr_set == out_sets:
-                    self.curr_set = 0
-                    self.iteration += 1
-                if self.iteration == num_iteration:
-                    self.iteration = 0
-                    self.curr_filter += 1
-                if self.curr_filter == self.arr_y:
-                    self.pass_done.wr(True)
+
+                self.wset += 1
+                if self.wset == self.arr_x // self.chn_per_word:
+                    self.wset = 0
+                    self.curr_i += 1
+                    if self.curr_i == self.input_size + 1:
+                        self.curr_i = 0
+                        self.curr_o += self.arr_x
+                        if self.curr_o >= self.output_size:
+                            self.curr_o = 0
+                            self.pass_done = True
 
 
 class InputDeserializer(Module):
@@ -134,33 +106,42 @@ class InputDeserializer(Module):
         self.weights_chn = weights_chn
         self.bias_chn = bias_chn
 
-        self.image_size = (0, 0)
-
-        self.fmap_idx = 0
-        self.curr_set = 0
-
-        self.bias_done = False
-
-    def configure(self, image_size):
-        self.image_size = image_size
-
-        self.fmap_idx = 0
-        self.curr_set = 0
-
-        self.cnt = 0
-
-        self.bias_done = False
         self.ifmap_done = False
+        self.bias_done = False
+        self.pass_done = False
+
+        self.input_size = None
+        self.output_size = None
+        self.batch_size = None
+
+        # State Counters
+        self.curr_set = 0
+        self.bset = 0
+        self.wset = 0
+        self.curr_i = 0
+        self.curr_o = 0
+        self.curr_batch = 0
+
+
+    def configure(self, batch_size, input_size, output_size):
+        self.input_size = input_size
+        self.output_size = output_size
+        self.batch_size = batch_size
+
+        self.ifmap_done = False
+        self.bias_done = False
+        self.pass_done = False
+
+        # State Counters
+        self.curr_set = 0
+        self.bset = 0
+        self.wset = 0
+        self.curr_i = 0
+        self.curr_o = 0
+        self.curr_batch = 0
 
     def tick(self):
-        in_sets = self.arr_y//self.chn_per_word
-        out_sets = self.arr_x//self.chn_per_word
-        fmap_per_iteration = self.image_size[0]*self.image_size[1]
-
-        if not self.bias_done:
-            target_chn = self.bias_chn
-            target_str = 'bias'
-        elif self.fmap_idx < fmap_per_iteration:
+        if not self.ifmap_done:
             target_chn = self.ifmap_chn
             target_str = 'ifmap'
         else:
@@ -169,61 +150,85 @@ class InputDeserializer(Module):
 
         if self.arch_input_chn.valid():
             if target_chn.vacancy():
-                self.cnt += 1
                 #  print ("des to ", target_str)
                 data = [e for e in self.arch_input_chn.pop()]
                 self.raw_stats['dram_rd'] += len(data)
                 target_chn.push(data)
-                if self.cnt <= out_sets:
-                    if self.cnt == out_sets:
-                        self.bias_done = True
-                else:
-                    self.curr_set += 1
-                    if self.fmap_idx < fmap_per_iteration:
-                        if self.curr_set == in_sets:
-                            self.curr_set = 0
-                            self.fmap_idx += 1
+
+                if not self.ifmap_done:
+                    if self.arch_input_chn.vacancy():
+                        self.bset += 1
+                        if self.bset == self.arr_y // self.chn_per_word:
+                            self.bset = 0
+                            self.curr_set += 1
+                            if self.curr_set == self.input_size:
+                                self.curr_set = 0
+                                self.curr_batch += self.arr_y
+                                if self.curr_batch >= self.batch_size:
+                                    self.curr_batch = 0
+                                    self.ifmap_done = True
+                elif not self.pass_done:
+                    if self.arch_input_chn.vacancy():
+                        self.wset += 1
+                        if self.wset == self.arr_x // self.chn_per_word:
+                            self.wset = 0
+                            self.curr_i += 1
+                            if self.curr_i == self.input_size + 1:
+                                self.curr_i = 0
+                                self.curr_o += self.arr_x
+                                if self.curr_o >= self.output_size:
+                                    self.curr_o = 0
+                                    self.pass_done = True
 
 class OutputSerializer(Module):
     def instantiate(self, arch_output_chn, pe_out_chn, arr_x, arr_y, chn_per_word):
         self.arch_output_chn = arch_output_chn
         self.pe_out_chn = pe_out_chn
-        
+
         self.stat_type = 'aggregate'
         self.raw_stats = {'dram_wr' : 0}
-
-        self.cur_y = 0
-        self.cur_set = 0
 
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word
 
-    def configure(self):
-        self.cur_y = 0
-        self.cur_set = 0
+        self.input_size = None
+        self.output_size = None
+        self.batch_size = None
+
+        # State Counters
+        self.curr_x = 0
+        self.curr_y = 0
+
+    def configure(self, input_size, output_size, batch_size):
+        self.input_size = input_size
+        self.output_size = output_size
+        self.batch_size = batch_size
+
+        # State Counters
+        self.curr_x = 0
+        self.curr_y = 0
 
     def tick(self):
-        in_set = self.arr_x // self.chn_per_word;
         valid = True
 
-        start = self.cur_set * self.chn_per_word
+        start = self.curr_y * self.chn_per_word
         end = start + self.chn_per_word
         for i in range(start, end):
-            valid = valid and self.pe_out_chn[self.cur_y][i].valid()
+            valid = valid and self.pe_out_chn[i][self.curr_x].valid()
 
         if valid and self.arch_output_chn.vacancy():
-            data = [self.pe_out_chn[self.cur_y][i].pop() for i in range(start, end)]
+            data = [self.pe_out_chn[i][self.curr_x].pop() for i in range(start, end)]
             #  print(data)
             self.arch_output_chn.push(data)
             self.raw_stats['dram_wr'] += len(data)
-            self.cur_set += 1
 
-        if self.cur_set == in_set:
-            self.cur_set = 0
-            self.cur_y += 1
-        if self.cur_y == self.arr_y:
-            self.cur_y = 0
+            self.curr_y += self.chn_per_word
+            if self.curr_y == self.arr_y:
+                self.curr_y = 0
+                self.curr_x += 1
+                if self.curr_x == self.arr_x:
+                    self.curr_x = 0
 
 class OutputDeserializer(Module):
     def instantiate(self, arch_output_chn, arr_x, arr_y, chn_per_word):
@@ -237,56 +242,57 @@ class OutputDeserializer(Module):
         self.ofmap = None
         self.reference = None
 
-        self.image_size = (0, 0)
+        self.batch_size = None
+        self.output_size = None
 
         self.curr_set = 0
-        self.fmap_idx = 0
-        
-        self.pass_done = Reg(False)
+        self.curr_batch = 0
+        self.curr_o = 0
 
-    def configure(self, ofmap, reference, image_size):
+        self.pass_done = True
+
+    def configure(self, ofmap, reference):
         self.ofmap = ofmap
         self.reference = reference
 
-        self.image_size = image_size
+        self.batch_size = ofmap.shape[0]
+        self.output_size = ofmap.shape[1]
 
         self.curr_set = 0
-        self.fmap_idx = 0
+        self.curr_batch = 0
+        self.curr_o = 0
 
-        self.pass_done.wr(False)
+        self.pass_done = False
 
     def tick(self):
-        if self.pass_done.rd():
+        if self.pass_done:
             return
-
-        out_sets = self.arr_x//self.chn_per_word
-        fmap_per_iteration = self.image_size[0]*self.image_size[1]
 
         if self.arch_output_chn.valid():
             #  print(self.fmap_idx, self.curr_set)
             data = [e for e in self.arch_output_chn.pop()]
 
-            x = self.fmap_idx % self.image_size[0]
-            y = self.fmap_idx // self.image_size[0]
+            ymin = self.curr_batch + self.curr_set * self.chn_per_word
+            ymax = self.curr_batch + self.chn_per_word
+            for y in range(ymin, ymax):
+                self.ofmap[y, self.curr_o] = data[y-ymin]
 
-            if self.curr_set < out_sets:
-                cmin = self.curr_set*self.chn_per_word
-                cmax = cmin + self.chn_per_word
-                for c in range(cmin, cmax):
-                    self.ofmap[x, y, c] = data[c-cmin]
             self.curr_set += 1
-
-            if self.curr_set == out_sets:
+            if self.curr_set == self.arr_y // self.chn_per_word:
                 self.curr_set = 0
-                self.fmap_idx += 1
-            if self.fmap_idx == fmap_per_iteration:
-                self.fmap_idx = 0
-                self.pass_done.wr(True)
-                if np.all(self.ofmap == self.reference):
-                    raise Finish("Success")
-                else:
-                    print(self.ofmap)
-                    print(self.reference)
-                    print(self.ofmap-self.reference)
-                    raise Finish("Validation Failed")
+                self.curr_o += 1
+                if self.curr_o >= self.output_size:
+                    self.curr_o = 0
+                    self.curr_batch += self.arr_y
+                    if self.curr_batch >= self.batch_size:
+                        self.curr_batch = 0
+
+                        self.pass_done = True
+                        if np.all(self.ofmap == self.reference):
+                            raise Finish("Success")
+                        else:
+                            print(self.ofmap)
+                            print(self.reference)
+                            # print(self.ofmap-self.reference)
+                            raise Finish("Validation Failed")
 

@@ -4,14 +4,14 @@ from nnsim.channel import Channel
 
 from .pe import PE
 from .serdes import InputDeserializer, OutputSerializer
-from .glb import IFMapGLB, WeightsGLB
-from .noc import IFMapNoC, WeightsNoC, BiasNoC
+from .glb import GLB
+from .noc import IFMapNoC, WeightsNoC
 
-class WSArch(Module):
+class OSArch(Module):
     def instantiate(self, arr_x, arr_y,
             input_chn, output_chn,
             chn_per_word,
-            ifmap_glb_depth, weight_glb_depth, in_chn):
+            ifmap_glb_depth, weight_glb_depth):
         # PE static configuration (immutable)
         self.name = 'chip'
         self.arr_x = arr_x
@@ -34,17 +34,17 @@ class WSArch(Module):
 
         # Instantiate GLB and GLB channels
         self.ifmap_rd_chn = Channel(3)
-        self.ifmap_glb = IFMapGLB(self.ifmap_wr_chn, self.ifmap_rd_chn,
-                ifmap_glb_depth, chn_per_word, in_chn)
+        self.ifmap_glb = GLB(self.ifmap_wr_chn, self.ifmap_rd_chn,
+                ifmap_glb_depth, self.arr_y, chn_per_word, name='ifmap_glb')
 
 
         self.weights_rd_chn = Channel()
-        self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn, weight_glb_depth, arr_x)
+        self.weights_glb = GLB(self.weights_wr_chn, self.weights_rd_chn, weight_glb_depth, self.arr_x, self.chn_per_word, name='weight_glb')
 
         # PE Array and local channel declaration
         self.pe_array = ModuleList()
         self.pe_ifmap_chns = ModuleList()
-        self.pe_filter_chns = ModuleList()
+        self.pe_weight_chns = ModuleList()
         self.pe_bias_chns = ModuleList()
         self.pe_out_chns = ModuleList()
 
@@ -52,46 +52,40 @@ class WSArch(Module):
         for y in range(self.arr_y):
             self.pe_array.append(ModuleList())
             self.pe_ifmap_chns.append(ModuleList())
-            self.pe_filter_chns.append(ModuleList())
-            self.pe_bias_chns.append(ModuleList())
+            self.pe_weight_chns.append(ModuleList())
             self.pe_out_chns.append(ModuleList())
             for x in range(self.arr_x):
                 self.pe_ifmap_chns[y].append(Channel(32))
-                self.pe_filter_chns[y].append(Channel(32))
-                self.pe_bias_chns[y].append(Channel(32))
+                self.pe_weight_chns[y].append(Channel(32))
                 self.pe_out_chns[y].append(Channel(32))
                 self.pe_array[y].append(
                     PE(x, y,
                         self.pe_ifmap_chns[y][x],
-                        self.pe_filter_chns[y][x],
-                        self.pe_bias_chns[y][x],
-                        self.pe_out_chns[y][x]
+                        self.pe_weight_chns[y][x],
+                        self.pe_out_chns[y][x],
                     )
                 )
 
         # Setup NoC to deliver weights, ifmaps and psums
-        self.filter_noc = WeightsNoC(self.weights_rd_chn, self.pe_filter_chns, self.arr_x)
-        self.ifmap_noc = IFMapNoC(self.ifmap_rd_chn, self.pe_ifmap_chns, self.arr_x, self.chn_per_word)
-        self.bias_noc = BiasNoC(self.bias_wr_chn, self.pe_bias_chns, self.arr_x, self.arr_y)
+        self.weight_noc = WeightsNoC(self.weights_rd_chn, self.pe_weight_chns, self.arr_x, self.arr_y)
+        self.ifmap_noc = IFMapNoC(self.ifmap_rd_chn, self.pe_ifmap_chns, self.arr_x, self.arr_y)
 
         self.serializer = OutputSerializer(self.output_chn, self.pe_out_chns, self.arr_x, self.arr_y, chn_per_word)
 
 
 
-    def configure(self, image_size, filter_size, in_chn, out_chn):
-        in_sets = self.arr_y//self.chn_per_word
-        out_sets = self.arr_x//self.chn_per_word
-        fmap_per_iteration = image_size[0]*image_size[1]
-        num_iteration = filter_size[0]*filter_size[1]
+    def configure(self, batch_size, input_size, output_size):
+        self.deserializer.configure(batch_size, input_size, output_size)
+        self.ifmap_glb.configure(batch_size * input_size // self.arr_y,
+                                 output_size // self.arr_x,
+                                 batch_size)
+        self.weights_glb.configure((input_size+1) * output_size // self.arr_x,
+                                   input_size // self.arr_x,
+                                   self.arr_x)
 
-        self.deserializer.configure(image_size)
-        self.ifmap_glb.configure(image_size, filter_size, in_sets, fmap_per_iteration)
-        self.weights_glb.configure(image_size[0] / self.chn_per_word, num_iteration * in_chn)
-
-        self.filter_noc.configure(self.arr_x, self.arr_y)
-        self.ifmap_noc.configure(in_sets)
-        self.bias_noc.configure()
+        self.weight_noc.configure()
+        self.ifmap_noc.configure()
 
         for y in range(self.arr_y):
             for x in range(self.arr_x):
-                self.pe_array[y][x].configure(filter_size[0] * in_chn)
+                self.pe_array[y][x].configure(input_size)

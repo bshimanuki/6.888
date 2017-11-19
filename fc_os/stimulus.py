@@ -4,16 +4,9 @@ import numpy as np
 from nnsim.module import Module
 from .serdes import InputSerializer, OutputDeserializer
 
-def conv(x, W, b):
+def fc(x, W, b):
     # print x.shape, W.shape, b.shape
-    y = np.zeros([x.shape[0], x.shape[1], W.shape[3]]).astype(np.int64)
-    for out_channel in range(W.shape[3]):
-        for in_channel in range(W.shape[2]):
-            W_c = W[:, :, in_channel, out_channel]
-            x_c = x[:, :, in_channel]
-            y[:, :, out_channel] += correlate2d(x_c, W_c, mode="same")
-        y[:, :, out_channel] += b[out_channel]
-    return y
+    return np.dot(x, W) + b[None,...]
 
 class Stimulus(Module):
     def instantiate(self, arr_x, arr_y, chn_per_word, input_chn, output_chn):
@@ -30,23 +23,16 @@ class Stimulus(Module):
         self.deserializer = OutputDeserializer(self.output_chn, self.arr_x,
             self.arr_y, self.chn_per_word)
 
-    def configure(self, image_size, filter_size, in_chn, out_chn):
+    def configure(self, batch_size, input_size, output_size):
         # Test data
-        #  ifmap = np.zeros((image_size[0], image_size[1],
-            #  in_chn)).astype(np.int64)
-        ifmap = np.random.normal(0, 10, (image_size[0], image_size[1],
-            in_chn)).astype(np.int64)
-        # ifmap = np.random.normal(0, 10, (image_size[0], image_size[1],
-        #     in_chn)).astype(np.int64)
-        weights = np.random.normal(0, 10, (filter_size[0], filter_size[1], in_chn,
-            out_chn)).astype(np.int64)
-        bias = np.random.normal(0, 10, out_chn).astype(np.int64)
-        ofmap = np.zeros((image_size[0], image_size[1],
-            out_chn)).astype(np.int64)
+        ifmap = np.random.normal(0, 10, (batch_size, input_size)).astype(np.int64)
+        weights = np.random.normal(0, 10, (input_size, output_size)).astype(np.int64)
+        bias = np.random.normal(0, 10, output_size).astype(np.int64)
+        ofmap = np.zeros((batch_size, output_size)).astype(np.int64)
 
         # Reference Output
-        reference = conv(ifmap, weights, bias)
+        reference = fc(ifmap, weights, bias)
         #  print(reference)
 
-        self.serializer.configure(ifmap, weights, bias, image_size, filter_size)
-        self.deserializer.configure(ofmap, reference, image_size)
+        self.serializer.configure(ifmap, weights, bias)
+        self.deserializer.configure(ofmap, reference)
