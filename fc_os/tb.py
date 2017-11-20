@@ -5,44 +5,48 @@ from .stimulus import Stimulus
 import math
 
 class OSArchTB(Module):
-    def instantiate(self):
+    @staticmethod
+    def required_glb_depth(arr_x, arr_y, chn_per_word, batch_size, input_size, output_size):
+        ceil_batch = int(math.ceil(float(batch_size) / arr_y)) * arr_y
+        ceil_output = int(math.ceil(float(output_size) / arr_x)) * arr_x
+
+        ifmap_glb_depth = ceil_batch * input_size // arr_y
+        psum_glb_depth = 0
+        weight_glb_depth = (input_size+1) * ceil_output // arr_x
+
+        return ifmap_glb_depth, psum_glb_depth, weight_glb_depth
+
+    def instantiate(self, arr_x, arr_y, chn_per_word, done_chn, ifmap_glb_depth, psum_glb_depth, weight_glb_depth):
         self.name = 'tb'
-        self.batch_size = 8
-        self.input_size = 8
-        self.output_size = 16
+        self.arr_x = arr_x
+        self.arr_y = arr_y
+        self.chn_per_word = chn_per_word
 
-        self.chn_per_word = 4
+        self.batch_size = None
+        self.input_size = None
+        self.output_size = None
 
-        self.arr_x = 8
-        self.arr_y = 4
-
-        self.ceil_batch = int(math.ceil(float(self.batch_size) / self.arr_y)) * self.arr_y
-        self.ceil_output = int(math.ceil(float(self.output_size) / self.arr_x)) * self.arr_x
+        self.ceil_batch = None
+        self.ceil_output = None
 
         self.input_chn = Channel()
         self.output_chn = Channel()
-
-        ifmap_glb_depth = self.ceil_batch * self.input_size \
-                // self.arr_y
-        weight_glb_depth = (self.input_size+1) * self.ceil_output \
-                // self.arr_x
+        self.done_chn = done_chn
 
         self.stimulus = Stimulus(self.arr_x, self.arr_y, self.chn_per_word,
-            self.input_chn, self.output_chn)
+            self.input_chn, self.output_chn, self.done_chn)
         self.dut = OSArch(self.arr_x, self.arr_y, self.input_chn,
                 self.output_chn, self.chn_per_word, ifmap_glb_depth,
                 weight_glb_depth)
 
-        self.configuration_done = False
 
-    def tick(self):
-        if not self.configuration_done:
-            self.stimulus.configure(self.batch_size, self.input_size, self.output_size)
-            self.dut.configure(self.ceil_batch, self.input_size, self.ceil_output)
-            self.configuration_done = True
+    def configure(self, batch_size, input_size, output_size):
+        self.batch_size = batch_size
+        self.input_size = input_size
+        self.output_size = output_size
 
+        self.ceil_batch = int(math.ceil(float(self.batch_size) / self.arr_y)) * self.arr_y
+        self.ceil_output = int(math.ceil(float(self.output_size) / self.arr_x)) * self.arr_x
 
-if __name__ == "__main__":
-    from nnsim.simulator import run_tb
-    os_tb = OSArchTB()
-    run_tb(os_tb, verbose=False)
+        self.stimulus.configure(self.batch_size, self.input_size, self.output_size)
+        self.dut.configure(self.ceil_batch, self.input_size, self.ceil_output)

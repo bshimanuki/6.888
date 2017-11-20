@@ -9,7 +9,7 @@ def fc(x, W, b):
     return np.dot(x, W) + b[None,...]
 
 class Stimulus(Module):
-    def instantiate(self, arr_x, arr_y, chn_per_word, input_chn, output_chn):
+    def instantiate(self, arr_x, arr_y, chn_per_word, input_chn, output_chn, done_chn):
         # PE static configuration (immutable)
         self.arr_x = arr_x
         self.arr_y = arr_y
@@ -17,10 +17,11 @@ class Stimulus(Module):
 
         self.input_chn = input_chn
         self.output_chn = output_chn
+        self.done_chn = done_chn
 
         self.serializer = InputSerializer(self.input_chn, self.arr_x,
             self.arr_y, self.chn_per_word)
-        self.deserializer = OutputDeserializer(self.output_chn, self.arr_x,
+        self.deserializer = OutputDeserializer(self.output_chn, self.done_chn, self.arr_x,
             self.arr_y, self.chn_per_word)
 
     def configure(self, batch_size, input_size, output_size):

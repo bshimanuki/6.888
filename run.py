@@ -8,6 +8,10 @@ if __name__ == "__main__":
              in_chn=7,
              out_chn=15,
              ),
+        FC(batch_size=8,
+           input_size=8,
+           output_size=16,
+           ),
     ]
 
     tb = MetaArchTB(arr_x=8,

@@ -20,12 +20,12 @@ class WSArchTB(Module):
                 ceil_in_chn//chn_per_word
         psum_glb_depth = image_size[0]*image_size[1]* \
                 out_chn//chn_per_word
-        weights_glb_depth = filter_size[0]*filter_size[1]* \
+        weight_glb_depth = filter_size[0]*filter_size[1]* \
                 in_chn*out_chn//chn_per_word
 
-        return ifmap_glb_depth, psum_glb_depth, weights_glb_depth
+        return ifmap_glb_depth, psum_glb_depth, weight_glb_depth
 
-    def instantiate(self, arr_x, arr_y, chn_per_word, done_chn, ifmap_glb_depth, psum_glb_depth, weights_glb_depth):
+    def instantiate(self, arr_x, arr_y, chn_per_word, done_chn, ifmap_glb_depth, psum_glb_depth, weight_glb_depth):
         self.name = 'tb'
 
         self.image_size = None
@@ -52,7 +52,7 @@ class WSArchTB(Module):
             self.input_chn, self.output_chn, self.done_chn)
         self.dut = WSArch(self.arr_x, self.arr_y, self.input_chn,
                 self.output_chn, self.chn_per_word, ifmap_glb_depth,
-                psum_glb_depth, weights_glb_depth)
+                psum_glb_depth, weight_glb_depth)
 
     def configure(self, image_size, filter_size, full_in_chn, full_out_chn):
         self.image_size = image_size
@@ -66,4 +66,3 @@ class WSArchTB(Module):
 
         self.stimulus.configure(self.image_size, self.filter_size, self.full_in_chn, self.full_out_chn)
         self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.ceil_in_chn, self.ceil_out_chn)
-        self.configuration_done = True

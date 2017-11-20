@@ -382,7 +382,7 @@ class OutputDeserializer(Module):
                     if np.all(self.ofmap == self.reference):
                         self.done_chn.push(True)
                     else:
-                        #  print(self.ofmap)
-                        #  print(self.reference)
-                        #  print(self.ofmap-self.reference)
+                        print(self.ofmap)
+                        print(self.reference)
+                        print(self.ofmap-self.reference)
                         self.done_chn.push(False)

@@ -11,7 +11,7 @@ class WSArch(Module):
     def instantiate(self, arr_x, arr_y,
             input_chn, output_chn,
             chn_per_word,
-            ifmap_glb_depth, psum_glb_depth, weights_glb_depth):
+            ifmap_glb_depth, psum_glb_depth, weight_glb_depth):
         # PE static configuration (immutable)
         self.name = 'chip'
         self.arr_x = arr_x
@@ -48,7 +48,7 @@ class WSArch(Module):
                 psum_glb_depth, chn_per_word)
 
         self.weights_rd_chn = Channel(3)
-        self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn, weights_glb_depth, chn_per_word)
+        self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn, weight_glb_depth, chn_per_word)
 
         # PE Array and local channel declaration
         self.pe_array = ModuleList()

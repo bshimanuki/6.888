@@ -255,13 +255,14 @@ class OutputSerializer(Module):
                     self.curr_x = 0
 
 class OutputDeserializer(Module):
-    def instantiate(self, arch_output_chn, arr_x, arr_y, chn_per_word):
+    def instantiate(self, arch_output_chn, done_chn, arr_x, arr_y, chn_per_word):
         # PE static configuration (immutable)
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word
 
         self.arch_output_chn = arch_output_chn
+        self.done_chn = done_chn
 
         self.ofmap = None
         self.reference = None
@@ -314,10 +315,9 @@ class OutputDeserializer(Module):
 
                         self.pass_done = True
                         if np.all(self.ofmap == self.reference):
-                            raise Finish("Success")
+                            self.done_chn.push(True)
                         else:
                             print(self.ofmap)
                             print(self.reference)
                             print(self.ofmap-self.reference)
-                            raise Finish("Validation Failed")
-
+                            self.done_chn.push(False)
