@@ -14,15 +14,10 @@ class GLB(Module):
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, width), 'rd': 0, 'wr': 0}
 
-
         self.sram = SRAM(glb_depth, width, nports=2)
         self.last_read = Channel(3)
 
         self.curr_data = Reg([])
-        self.curr_set = 0
-        self.fmap_idx = 0
-        self.iteration = 0
-        self.cur_x = 0
         self.wr_done = False
         self.pass_done = False
 
@@ -35,6 +30,7 @@ class GLB(Module):
     def configure(self, size, passes, batch_size):
         self.wr_done = False
         self.pass_done = False
+        self.curr_data.reset()
 
         self.size = size
         self.passes = passes
@@ -54,8 +50,6 @@ class GLB(Module):
                 if len(curr_data) == self.width:
                     self.raw_stats['wr'] += len(curr_data)
                     # print "ifmap_glb wr"
-                    # Write ifmap to glb
-                    # print "ifmap_to_glb: ", in_sets, self.fmap_idx, self.curr_set
                     addr = self.curr_i
                     self.curr_i += 1
                     self.sram.request(WR, addr, curr_data)

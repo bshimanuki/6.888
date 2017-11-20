@@ -12,7 +12,7 @@ class PE(Module):
         self.loc_y = loc_y
         
         self.stat_type = 'aggregate'
-        self.raw_stats = {'pe_mac' : 0}
+        self.raw_stats = {'pe_nz_mac' : 0, 'pe_z_mac': 0}
 
         # IO channels
         self.ifmap_chn = ifmap_chn
@@ -42,7 +42,10 @@ class PE(Module):
                 ifmap = self.ifmap_chn.pop()
                 weight = self.filter_chn.peek()
                 self.psum_out_chn.push(in_psum+ifmap*weight)
-                self.raw_stats['pe_mac'] += 1
+                if ifmap == 0 or weight == 0:
+                    self.raw_stats['pe_z_mac'] += 1
+                else:
+                    self.raw_stats['pe_nz_mac'] += 1
                 # print "PE(%d, %d) fired @ (%d, %d)" % (self.loc_x, self.loc_y,
                 #         self.iteration, self.fmap_idx)
 

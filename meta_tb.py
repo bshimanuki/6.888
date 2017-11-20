@@ -31,19 +31,29 @@ class MetaArchTB(Module):
         self.psum_glb_depth = 0
         self.weights_glb_depth = 0
 
+        use_conv = False
+        use_fc = False
+
+        self.conv_tb = None
+        self.fc_tb = None
+
         for layer in self.layers:
             if isinstance(layer, Conv):
                 ifmap_glb_depth, psum_glb_depth, weights_glb_depth = WSArchTB.required_glb_depth(self.arr_x, self.arr_y, self.chn_per_word, layer.image_size, layer.filter_size, layer.in_chn, layer.out_chn)
+                use_conv = True
             elif isinstance(layer, FC):
                 ifmap_glb_depth, psum_glb_depth, weights_glb_depth = OSArchTB.required_glb_depth(self.arr_x, self.arr_y, self.chn_per_word, layer.batch_size, layer.input_size, layer.output_size)
+                use_fc = True
             else:
                 raise Exception('layer not valid')
             self.ifmap_glb_depth = max(self.ifmap_glb_depth, ifmap_glb_depth)
             self.psum_glb_depth = max(self.psum_glb_depth, psum_glb_depth)
             self.weights_glb_depth = max(self.weights_glb_depth, weights_glb_depth)
 
-        self.conv_tb = WSArchTB(self.arr_x, self.arr_y, self.chn_per_word, self.done_chn, self.ifmap_glb_depth, self.psum_glb_depth, self.weights_glb_depth)
-        self.fc_tb = OSArchTB(self.arr_x, self.arr_y, self.chn_per_word, self.done_chn, self.ifmap_glb_depth, self.psum_glb_depth, self.weights_glb_depth)
+        if use_conv:
+            self.conv_tb = WSArchTB(self.arr_x, self.arr_y, self.chn_per_word, self.done_chn, self.ifmap_glb_depth, self.psum_glb_depth, self.weights_glb_depth)
+        if use_fc:
+            self.fc_tb = OSArchTB(self.arr_x, self.arr_y, self.chn_per_word, self.done_chn, self.ifmap_glb_depth, self.psum_glb_depth, self.weights_glb_depth)
 
         self.layer_step = 0
 
