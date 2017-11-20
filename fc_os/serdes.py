@@ -3,6 +3,7 @@ from nnsim.reg import Reg
 from nnsim.simulator import Finish
 
 import numpy as np
+import math
 
 class InputSerializer(Module):
     def instantiate(self, arch_input_chn, arr_x, arr_y, chn_per_word):
@@ -283,6 +284,9 @@ class OutputDeserializer(Module):
         self.batch_size = ofmap.shape[0]
         self.output_size = ofmap.shape[1]
 
+        self.ceil_batch = int(math.ceil(float(self.batch_size) / self.arr_y)) * self.arr_y
+        self.ceil_output = int(math.ceil(float(self.output_size) / self.arr_x)) * self.arr_x
+
         self.curr_set = 0
         self.curr_batch = 0
         self.curr_o = 0
@@ -307,10 +311,10 @@ class OutputDeserializer(Module):
             if self.curr_set == self.arr_y // self.chn_per_word:
                 self.curr_set = 0
                 self.curr_o += 1
-                if self.curr_o >= self.output_size:
+                if self.curr_o >= self.ceil_output:
                     self.curr_o = 0
                     self.curr_batch += self.arr_y
-                    if self.curr_batch >= self.batch_size:
+                    if self.curr_batch >= self.ceil_batch:
                         self.curr_batch = 0
 
                         self.pass_done = True
