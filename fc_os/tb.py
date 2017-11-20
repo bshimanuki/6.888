@@ -2,6 +2,7 @@ from nnsim.module import Module
 from nnsim.channel import Channel
 from .os import OSArch
 from .stimulus import Stimulus
+import math
 
 class OSArchTB(Module):
     def instantiate(self):
@@ -15,12 +16,15 @@ class OSArchTB(Module):
         self.arr_x = 8
         self.arr_y = 4
 
+        self.ceil_batch = int(math.ceil(float(self.batch_size) / self.arr_y)) * self.arr_y
+        self.ceil_output = int(math.ceil(float(self.output_size) / self.arr_x)) * self.arr_x
+
         self.input_chn = Channel()
         self.output_chn = Channel()
 
-        ifmap_glb_depth = self.batch_size * self.input_size \
+        ifmap_glb_depth = self.ceil_batch * self.input_size \
                 // self.arr_y
-        weight_glb_depth = (self.input_size+1) * self.output_size \
+        weight_glb_depth = (self.input_size+1) * self.ceil_output \
                 // self.arr_x
 
         self.stimulus = Stimulus(self.arr_x, self.arr_y, self.chn_per_word,
@@ -34,7 +38,7 @@ class OSArchTB(Module):
     def tick(self):
         if not self.configuration_done:
             self.stimulus.configure(self.batch_size, self.input_size, self.output_size)
-            self.dut.configure(self.batch_size, self.input_size, self.output_size)
+            self.dut.configure(self.ceil_batch, self.input_size, self.ceil_output)
             self.configuration_done = True
 
 

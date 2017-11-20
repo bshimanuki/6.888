@@ -10,7 +10,7 @@ class PE(Module):
         # PE identifier (immutable)
         self.loc_x = loc_x
         self.loc_y = loc_y
-        #  self.is_first = self.loc_x == 0 and self.loc_y == 1
+        #  self.is_first = self.loc_x == 0 and self.loc_y == 0
         
         self.stat_type = 'aggregate'
         self.raw_stats = {'pe_mac' : 0}
@@ -42,12 +42,7 @@ class PE(Module):
             weight = self.weight_chn.pop()
             self.accumulator = self.accumulator + ifmap * weight
             self.raw_stats['pe_mac'] += 1
-            #  if self.is_first:
-                #  print("PE", ifmap, weight, self.accumulator)
             self.cnt += 1
-            #  if self.cnt == 96:
-                #  print("PE DONE")
-            #  print(self.cnt)
 
         if self.cnt == self.input_size + 1 and self.out_chn.vacancy():
             self.out_chn.push(self.accumulator)

@@ -60,7 +60,6 @@ class GLB(Module):
                     self.curr_i += 1
                     self.sram.request(WR, addr, curr_data)
                     self.curr_data.wr([])
-                    #  print(addr, data)
                     if self.curr_i == self.size:
                         self.curr_i = 0
                         # Done initializing ifmaps and psums

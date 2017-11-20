@@ -55,7 +55,15 @@ class InputSerializer(Module):
             if self.arch_input_chn.vacancy():
                 bmin = self.curr_batch + self.bset * self.chn_per_word
                 bmax = bmin + self.chn_per_word
-                data = np.array([self.ifmap[b, self.curr_set] for b in range(bmin, bmax)])
+                if bmax > self.batch_size:
+                    num_zeros = bmax - self.batch_size
+                    if num_zeros > bmax - bmin:
+                        data = [0] * (bmax - bmin)
+                    else:
+                        bmax = self.batch_size
+                        data = np.array([ self.ifmap[b, self.curr_set] for b in range(bmin, bmax) ] + [0] * num_zeros)
+                else:
+                    data = np.array([self.ifmap[b, self.curr_set] for b in range(bmin, bmax)])
                 self.arch_input_chn.push(data)
 
                 self.bset += 1
@@ -73,10 +81,26 @@ class InputSerializer(Module):
                 omin = self.curr_o + self.wset * self.chn_per_word
                 omax = omin + self.chn_per_word
                 if self.curr_i == 0:
-                    data = np.array([self.bias[o] for o in range(omin, omax)])
+                    if omax > self.output_size:
+                        num_zeros = omax - self.output_size
+                        if num_zeros > omax - omin:
+                            data = [0] * (omax - omin)
+                        else:
+                            omax = self.output_size
+                            data = np.array([ self.bias[o] for o in range(omin, omax) ] + [0] * num_zeros)
+                    else:
+                        data = np.array([self.bias[o] for o in range(omin, omax)])
                 else:
                     curr_i = self.curr_i - 1
-                    data = np.array([self.weights[curr_i, o] for o in range(omin, omax)])
+                    if omax > self.output_size:
+                        num_zeros = omax - self.output_size
+                        if num_zeros > omax - omin:
+                            data = [0] * (omax - omin)
+                        else:
+                            omax = self.output_size
+                            data = np.array([self.weights[curr_i, o] for o in range(omin, omax)] + [0] * num_zeros)
+                    else:
+                        data = np.array([self.weights[curr_i, o] for o in range(omin, omax)])
                 self.arch_input_chn.push(data)
 
                 self.wset += 1
@@ -273,9 +297,10 @@ class OutputDeserializer(Module):
             data = [e for e in self.arch_output_chn.pop()]
 
             ymin = self.curr_batch + self.curr_set * self.chn_per_word
-            ymax = self.curr_batch + self.chn_per_word
+            ymax = min(self.curr_batch + self.chn_per_word, self.batch_size)
             for y in range(ymin, ymax):
-                self.ofmap[y, self.curr_o] = data[y-ymin]
+                if self.curr_o < self.output_size:
+                    self.ofmap[y, self.curr_o] = data[y-ymin]
 
             self.curr_set += 1
             if self.curr_set == self.arr_y // self.chn_per_word:
@@ -293,6 +318,6 @@ class OutputDeserializer(Module):
                         else:
                             print(self.ofmap)
                             print(self.reference)
-                            # print(self.ofmap-self.reference)
+                            print(self.ofmap-self.reference)
                             raise Finish("Validation Failed")
 
