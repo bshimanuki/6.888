@@ -96,7 +96,7 @@ class WSArch(Module):
 
         self.deserializer.configure(image_size, filter_size, full_in_sets, tile_ins, tile_outs)
         self.serializer.configure(image_size, tile_ins, tile_outs)
-        self.ifmap_glb.configure(image_size, filter_size, in_sets, full_in_sets, fmap_per_iteration)
+        self.ifmap_glb.configure(image_size, filter_size, in_sets, full_in_sets, tile_outs, fmap_per_iteration)
         self.psum_glb.configure(filter_size, out_sets, fmap_per_iteration)
         self.weights_glb.configure(filter_size, in_sets, out_sets)
         self.filter_noc.configure(in_sets, self.arr_x)

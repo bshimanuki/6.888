@@ -270,9 +270,6 @@ class OutputSerializer(Module):
         self.tile_ins = 0
         self.tile_outs = 0
 
-        self.ofmap = None
-        self.reference = None
-
         self.curr_set = 0
         self.fmap_idx = 0
 
@@ -283,6 +280,9 @@ class OutputSerializer(Module):
         self.tile_out = 0
         self.tile_ins = tile_ins
         self.tile_outs = tile_outs
+
+        self.curr_set = 0
+        self.fmap_idx = 0
 
     def tick(self):
         out_sets = self.arr_x//self.chn_per_word

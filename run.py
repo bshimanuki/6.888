@@ -3,15 +3,24 @@ from meta_tb import MetaArchTB, Conv, FC
 
 if __name__ == "__main__":
     layers = [
+        Conv(image_size=(5, 4),
+             filter_size=(3, 3),
+             in_chn=3,
+             out_chn=9,
+             ),
         Conv(image_size=(4, 4),
              filter_size=(3, 3),
-             in_chn=7,
-             out_chn=15,
+             in_chn=5,
+             out_chn=8,
              ),
-        FC(batch_size=13,
+        FC(batch_size=5,
            input_size=7,
-           output_size=31,
+           output_size=9,
            ),
+        # FC(batch_size=5,
+           # input_size=7,
+           # output_size=9,
+           # ),
     ]
 
     tb = MetaArchTB(arr_x=8,
