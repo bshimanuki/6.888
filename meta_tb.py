@@ -20,7 +20,14 @@ class FC(object):
         self.output_size = output_size
         self.name = name
 
+# (TODO): Implement actual activations
+class Activation(object):
+    def __init__(self, func, name):
+        self.func = func
+        self.name = name
+
 class MetaArchTB(Module):
+    # (TODO): allow user to plugin conv weights, biases
     def instantiate(self, arr_x, arr_y, chn_per_word, layers, batch_size):
         self.arr_x = arr_x
         self.arr_y = arr_y
@@ -45,6 +52,9 @@ class MetaArchTB(Module):
         cur_in_chn = None
         is_conv = False
 
+        num_convs = 0
+        num_fc = 0
+
         for layer in self.layers:
             if isinstance(layer, Conv):
                 if cur_image_size is None:
@@ -56,6 +66,7 @@ class MetaArchTB(Module):
                 cur_image_size = layer.image_size
                 cur_in_chn = layer.out_chn
                 is_conv = True
+                num_convs += 1
             elif isinstance(layer, FC):
                 if cur_image_size is None:
                     pass
@@ -67,6 +78,7 @@ class MetaArchTB(Module):
                 use_fc = True
                 cur_image_size = layer.output_size
                 is_conv = False
+                num_fc += 1
             else:
                 raise Exception('layer not valid')
             self.ifmap_glb_depth = max(self.ifmap_glb_depth, ifmap_glb_depth)
@@ -83,28 +95,40 @@ class MetaArchTB(Module):
         self.conv_inputs = [None] * self.batch_size
         self.fc_input = None
 
-    # (TODO): Pluggable conv filter and fc weights
+        self.conv_weights = [None] * num_convs
+        self.conv_bias = [None] * num_convs
+
+        self.fc_weights = [None] * num_fc
+        self.fc_bias = [None] * num_fc
+
+        self.cur_conv = 0
+        self.cur_fc = 0
+
     def tick(self):
         if not self.started or self.done_chn.valid():
             self.started = True
-            layer = self.layers[self.layer_step]
+            old_layer = self.layers[self.layer_step]
+
             if self.done_chn.valid():
                 valid = self.done_chn.pop()
                 if not valid:
                     raise Finish('Validation Failed')
-                if isinstance(layer, Conv):
+                if isinstance(old_layer, Conv):
                     self.conv_inputs[self.batch_step] = self.conv_tb.get_output()
                     self.batch_step += 1
                     if self.batch_step == self.batch_size:
                         self.batch_step = 0
                         self.layer_step += 1
+                        self.cur_conv += 1
                 else:
                     self.fc_input = self.fc_tb.get_output()
                     self.layer_step += 1
-            if self.layer_step == len(self.layers):
-                raise Finish('Success')
+                    self.cur_fc += 1
+                if self.layer_step == len(self.layers):
+                    raise Finish('Success')
 
             layer = self.layers[self.layer_step]
+            print(layer, self.layer_step)
 
             # handle conv to fc transition
             if isinstance(layer, FC) and self.fc_input is None and self.conv_inputs[0] is not None:
@@ -114,13 +138,26 @@ class MetaArchTB(Module):
 
             if isinstance(layer, Conv):
                 if self.conv_inputs[self.batch_step] is None:
-                    self.conv_tb.configure(layer.image_size, layer.filter_size, layer.in_chn, layer.out_chn)
+                    _, weights, bias = self.conv_tb.configure(layer.image_size, layer.filter_size, layer.in_chn, layer.out_chn)
+                    self.conv_weights[self.cur_conv] = weights
+                    self.conv_bias[self.cur_conv] = bias
+                elif self.conv_weights[self.cur_conv] is None or self.conv_bias[self.cur_conv] is None:
+                    weights, bias = self.conv_tb.configure_fixed_image(self.conv_inputs[self.batch_step], layer.filter_size, layer.in_chn, layer.out_chn)
+                    self.conv_weights[self.cur_conv] = weights
+                    self.conv_bias[self.cur_conv] = bias
                 else:
-                    self.conv_tb.configure_fixed(self.conv_inputs[self.batch_step], layer.filter_size, layer.in_chn, layer.out_chn)
+                    self.conv_tb.configure_fixed(self.conv_inputs[self.batch_step], self.conv_weights[self.cur_conv], self.conv_bias[self.cur_conv])
+
             elif isinstance(layer, FC):
                 if self.fc_input is None:
-                    self.fc_tb.configure(self.batch_size, layer.input_size, layer.output_size)
+                    _, weights, bias = self.fc_tb.configure(self.batch_size, layer.input_size, layer.output_size)
+                    self.fc_weights[self.cur_fc] = weights
+                    self.fc_bias[self.cur_fc] = bias
+                elif self.fc_weights[self.cur_fc] is None or self.fc_bias[self.cur_fc] is None:
+                    weights, bias = self.fc_tb.configure_fixed_image(self.fc_input, layer.output_size)
+                    self.fc_weights[self.cur_fc] = weights
+                    self.fc_bias[self.cur_fc] = bias
                 else:
-                    self.fc_tb.configure_fixed(self.fc_input, layer.output_size)
+                    self.fc_tb.configure_fixed(self.fc_input, self.fc_weights[self.cur_fc], self.fc_bias[self.cur_fc])
             else:
                 raise Exception('layer not valid')
