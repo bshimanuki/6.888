@@ -39,7 +39,6 @@ class OSArchTB(Module):
                 self.output_chn, self.chn_per_word, ifmap_glb_depth,
                 weight_glb_depth)
 
-
     def configure(self, batch_size, input_size, output_size):
         self.batch_size = batch_size
         self.input_size = input_size
@@ -50,3 +49,17 @@ class OSArchTB(Module):
 
         self.stimulus.configure(self.batch_size, self.input_size, self.output_size)
         self.dut.configure(self.ceil_batch, self.input_size, self.ceil_output)
+
+    def configure_fixed(self, image, output_size):
+        self.batch_size = image.shape[0]
+        self.input_size = image.shape[1]
+        self.output_size = output_size
+
+        self.ceil_batch = int(math.ceil(float(self.batch_size) / self.arr_y)) * self.arr_y
+        self.ceil_output = int(math.ceil(float(self.output_size) / self.arr_x)) * self.arr_x
+
+        self.stimulus.configure_fixed(image, self.output_size)
+        self.dut.configure(self.ceil_batch, self.input_size, self.ceil_output)
+
+    def get_output(self):
+        return self.stimulus.deserializer.ofmap

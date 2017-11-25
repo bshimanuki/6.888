@@ -63,6 +63,20 @@ class WSArchTB(Module):
         self.ceil_in_chn = int(math.ceil(float(self.full_in_chn) / self.in_chn)) * self.in_chn
         self.ceil_out_chn = int(math.ceil(float(self.full_out_chn) / self.out_chn)) * self.out_chn
 
-
         self.stimulus.configure(self.image_size, self.filter_size, self.full_in_chn, self.full_out_chn)
         self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.ceil_in_chn, self.ceil_out_chn)
+
+    def configure_fixed(self, image, filter_size, full_in_chn, full_out_chn):
+        self.image_size = (image.shape[0], image.shape[1])
+        self.filter_size = filter_size
+        self.full_in_chn = full_in_chn
+        self.full_out_chn = full_out_chn
+
+        self.ceil_in_chn = int(math.ceil(float(self.full_in_chn) / self.in_chn)) * self.in_chn
+        self.ceil_out_chn = int(math.ceil(float(self.full_out_chn) / self.out_chn)) * self.out_chn
+
+        self.stimulus.configure_fixed(image, self.filter_size, self.full_in_chn, self.full_out_chn)
+        self.dut.configure(self.image_size, self.filter_size, self.in_chn, self.out_chn, self.ceil_in_chn, self.ceil_out_chn)
+
+    def get_output(self):
+        return self.stimulus.deserializer.ofmap

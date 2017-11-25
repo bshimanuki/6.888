@@ -36,6 +36,10 @@ class Stimulus(Module):
     def configure(self, image_size, filter_size, in_chn, out_chn):
         ifmap = np.random.normal(0, 10, (image_size[0], image_size[1],
             in_chn)).astype(np.int64)
+        self.configure_fixed(ifmap, filter_size, in_chn, out_chn)
+
+    def configure_fixed(self, ifmap, filter_size, in_chn, out_chn):
+        image_size = (ifmap.shape[0], ifmap.shape[1])
         weights = np.random.normal(0, 10, (filter_size[0], filter_size[1], in_chn,
             out_chn)).astype(np.int64)
         bias = np.random.normal(0, 10, out_chn).astype(np.int64)

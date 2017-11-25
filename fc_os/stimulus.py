@@ -27,6 +27,12 @@ class Stimulus(Module):
     def configure(self, batch_size, input_size, output_size):
         # Test data
         ifmap = np.random.normal(0, 10, (batch_size, input_size)).astype(np.int64)
+        self.configure_fixed(ifmap, output_size)
+
+    def configure_fixed(self, ifmap, output_size):
+        batch_size = ifmap.shape[0]
+        input_size = ifmap.shape[1]
+
         weights = np.random.normal(0, 10, (input_size, output_size)).astype(np.int64)
         bias = np.random.normal(0, 10, output_size).astype(np.int64)
         ofmap = np.zeros((batch_size, output_size)).astype(np.int64)
