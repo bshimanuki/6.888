@@ -20,10 +20,20 @@ class FC(object):
         self.output_size = output_size
         self.name = name
 
-# (TODO): Implement actual activations
+# (TODO): General activations
 class Activation(object):
     def __init__(self, func, name):
         self.func = func
+        self.name = name
+
+# (TODO): General Pooling
+class Pool(object):
+    def __init__(self, stuff, name):
+        self.name = name
+
+# (TODO)
+class ReLU(object):
+    def __init__(self, func, name):
         self.name = name
 
 class MetaArchTB(Module):
@@ -128,7 +138,6 @@ class MetaArchTB(Module):
                     raise Finish('Success')
 
             layer = self.layers[self.layer_step]
-            print(layer, self.layer_step)
 
             # handle conv to fc transition
             if isinstance(layer, FC) and self.fc_input is None and self.conv_inputs[0] is not None:
