@@ -31,6 +31,13 @@ class Stimulus(Module):
         bias = np.random.normal(0, 10, output_size).astype(np.int64)
         ofmap = np.zeros((batch_size, output_size)).astype(np.int64)
 
+        # ifmap[...] = 0
+        # weights[...] = 0
+        # bias[...] = 0
+
+        # ifmap[0,0] = 1
+        # bias[0] = 1
+
         # Reference Output
         reference = fc(ifmap, weights, bias)
         #  print(reference)

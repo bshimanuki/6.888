@@ -80,7 +80,7 @@ class OSArch(Module):
                                  output_size // self.arr_x,
                                  batch_size)
         self.weights_glb.configure((input_size+1) * output_size // self.arr_x,
-                                   input_size // self.arr_x,
+                                   batch_size // self.arr_y,
                                    self.arr_x)
 
         self.weight_noc.configure()

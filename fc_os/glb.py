@@ -77,6 +77,7 @@ class GLB(Module):
                         self.curr_b += self.width
                         if self.curr_b >= self.batch_size:
                             self.curr_b = 0
+                            self.pass_done = True
 
             if self.last_read.valid():
                 self.last_read.pop()
