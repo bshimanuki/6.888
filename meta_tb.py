@@ -114,7 +114,7 @@ class MetaArchTB(Module):
                     raise Exception('Invalid conv image size for %s: %s %s' % (layer.name, (cur_image_size, cur_in_chn), (layer.image_size, layer.in_chn)))
                 ifmap_glb_depth, psum_glb_depth, weights_glb_depth = WSArchTB.required_glb_depth(self.arr_x, self.arr_y, self.chn_per_word, layer.image_size, layer.filter_size, layer.in_chn, layer.out_chn)
                 use_conv = True
-                output_shape = layer.new_shape((None,) + layer.image_size + (layer.out_chn,))
+                output_shape = layer.new_shape((self.batch_size,) + layer.image_size + (layer.out_chn,))
                 cur_image_size = output_shape[1:3]
                 cur_in_chn = output_shape[3]
                 is_conv = True
@@ -128,7 +128,7 @@ class MetaArchTB(Module):
                     raise Exception('Invalid conv to fc dimension transition to ' + layer.name)
                 ifmap_glb_depth, psum_glb_depth, weights_glb_depth = OSArchTB.required_glb_depth(self.arr_x, self.arr_y, self.chn_per_word, self.batch_size, layer.input_size, layer.output_size)
                 use_fc = True
-                _, cur_image_size = layer.new_shape((None, layer.output_size))
+                _, cur_image_size = layer.new_shape((self.batch_size, layer.output_size))
                 is_conv = False
                 num_fc += 1
             else:
