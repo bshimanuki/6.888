@@ -35,4 +35,4 @@ if __name__ == "__main__":
                     layers=layers,
                     batch_size=2
                     )
-    run_tb(tb, verbose=False)
+    run_tb(tb, verbose=False, dump_stats=True)

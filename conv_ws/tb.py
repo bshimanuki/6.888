@@ -26,7 +26,7 @@ class WSArchTB(Module):
         return ifmap_glb_depth, psum_glb_depth, weight_glb_depth
 
     def instantiate(self, arr_x, arr_y, chn_per_word, done_chn, ifmap_glb_depth, psum_glb_depth, weight_glb_depth):
-        self.name = 'tb'
+        self.name = 'conv_tb'
 
         self.image_size = None
         self.filter_size = None

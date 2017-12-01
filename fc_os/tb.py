@@ -17,7 +17,7 @@ class OSArchTB(Module):
         return ifmap_glb_depth, psum_glb_depth, weight_glb_depth
 
     def instantiate(self, arr_x, arr_y, chn_per_word, done_chn, ifmap_glb_depth, psum_glb_depth, weight_glb_depth):
-        self.name = 'tb'
+        self.name = 'fc_tb'
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word

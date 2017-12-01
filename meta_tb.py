@@ -86,6 +86,8 @@ class MetaArchTB(Module):
         self.layers = layers
         self.batch_size = batch_size
 
+        self.name = 'meta'
+
         self.started = False
         self.done_chn = Channel()
 
