@@ -248,8 +248,8 @@ class OutputSerializer(Module):
             self.arch_output_chn.push(data)
             self.raw_stats['dram_wr'] += len(data)
 
-            self.curr_y += self.chn_per_word
-            if self.curr_y == self.arr_y:
+            self.curr_y += 1
+            if self.curr_y == self.arr_y // self.chn_per_word:
                 self.curr_y = 0
                 self.curr_x += 1
                 if self.curr_x == self.arr_x:
