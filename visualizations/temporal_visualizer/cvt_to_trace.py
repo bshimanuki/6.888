@@ -7,14 +7,15 @@ from re import search, match
 # ( Doc: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview )
 
 def cvt_log_to_trace(input_log_file):
-    EARLY_CUTOFF = 10000
+    # EARLY_CUTOFF = 10000
 
     f = open(input_file, 'r')
     trace = []
     tick = 0
+    mode = "NA"
     for i, line in enumerate(f):
-        if i > EARLY_CUTOFF:
-            break
+        # if i > EARLY_CUTOFF:
+        #     break
 
         # print(line, end='')
         if " Tick " in line:
@@ -23,6 +24,16 @@ def cvt_log_to_trace(input_log_file):
             tick += 1
         elif " NTick " in line:
             pass
+        elif "CONV MODE" in line:
+            if mode in ["CONV", "FC"]:
+                trace.append({"name": mode, "cat": "layer_chg", "ph": "E", "pid": 0, "tid": hash(mode), "ts":tick})
+            mode = "CONV"
+            trace.append({"name": "CONV", "cat": "layer_chg", "ph": "B", "pid": 0, "tid": hash("CONV"), "ts":tick})
+        elif "FC MODE" in line:
+            if mode in ["CONV", "FC"]:
+                trace.append({"name": mode, "cat": "layer_chg", "ph": "E", "pid": 0, "tid": hash(mode), "ts":tick})
+            mode = "FC"
+            trace.append({"name": "FC", "cat": "layer_chg", "ph": "B", "pid": 0, "tid": hash("FC"), "ts":tick})
         else:
             name = line.split()[0]
             if line.split()[0] == "chn":
@@ -37,6 +48,9 @@ def cvt_log_to_trace(input_log_file):
             else:
                 print("This line did not follow format: ", line)
                 assert(False)
+
+    if mode in ["CONV", "FC"]:
+        trace.append({"name": mode, "cat": "layer_chg", "ph": "E", "pid": 0, "tid": hash(mode), "ts":tick})
 
     return trace
 
@@ -57,8 +71,15 @@ def print_trace(trace):
     print(str(trace[-1]).replace('\'', '\"'), end='')
     print(']')
 
+import sys
 if __name__ == '__main__':
-    input_file = '../log.txt'
+    if len(sys.argv) != 2:
+        print("Provide the log file to parse as an argument.")
+        print("Ex: python cvt_to_trace.py ../../log.txt.")
+        exit()
+        
+    input_file = sys.argv[1]
+    # input_file = '../../log.txt'
     output_file = 'trace.json'
 
     # Convert
