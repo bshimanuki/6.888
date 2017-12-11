@@ -21,9 +21,11 @@ class Simulator(object):
             while (num_ticks is None) or (curr_ticks < num_ticks):
                 if verbose:
                     print("---- Tick #%d -----" % self.clk_ticks)
+                self.tb_module.output_file.write("---- Tick #{} -----\n".format(self.clk_ticks))
                 self.tb_module.__tick__()
                 if verbose:
                     print("---- NTick #%d ----" % self.clk_ticks)
+                self.tb_module.output_file.write("---- Tick #{} -----\n".format(self.clk_ticks))
                 self.tb_module.__ntick__()
                 self.clk_ticks += 1
                 curr_ticks += 1
@@ -31,7 +33,7 @@ class Simulator(object):
             if self.dump_stats:
                 self.tb_module.finalize_stats()
                 self.tb_module.dump_stats()
-                
+
             print("\ncyc %d: %s" % (self.clk_ticks, msg))
         except KeyboardInterrupt:
             pass
@@ -40,4 +42,3 @@ def run_tb(tb_module, nticks=None, verbose=False, dump_stats=False):
     sim = Simulator(tb_module, dump_stats)
     sim.reset()
     sim.run(nticks, verbose)
-

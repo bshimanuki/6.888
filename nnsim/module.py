@@ -16,6 +16,9 @@ class Module(object):
         self.instantiate(*args, **kwargs)
         self.register_modules()
 
+        self.output_path = "log.txt"
+        self.output_file = open(self.output_path, 'a', 1)
+
     def setup(self):
         pass
 
@@ -96,5 +99,3 @@ class ModuleList(object):
             elif issubclass(type(m), ModuleList):
                 module_list += m.register()
         return module_list
-
-

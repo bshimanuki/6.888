@@ -9,7 +9,7 @@ class RAMError(HWError):
     pass
 
 class SRAM(Module):
-    def instantiate(self, depth, width=1, nports=1, dtype=np.int64):
+    def instantiate(self, depth, width=1, nports=1, dtype=np.int64, name=None):
         # depth: The number of address stored in the RAM
         # width: The number of words stored per address (NOT bits)
         # word-size is application dependent and implicit but <64b
@@ -28,6 +28,8 @@ class SRAM(Module):
         self.wr_nxt = np.zeros((nports, width)).astype(dtype)
         self.wr_addr_nxt = np.zeros(nports).astype(np.uint32)
 
+        self.name = name
+
 
     def request(self, access, address, data=None, port=0):
         if self.port_used[port]:
@@ -36,6 +38,8 @@ class SRAM(Module):
 
         if access == RD:
             self.rd_nxt[port, :] = self.data[address, :]
+            if self.name != None:
+                self.output_file.write("sram {} read\n".format(self.name))
         elif access == WR:
             self.port_wr[port] = True
             self.wr_addr_nxt[port] = address
@@ -43,6 +47,8 @@ class SRAM(Module):
                 self.wr_nxt[port, 0] = data
             else:
                 self.wr_nxt[port, :] = data[:]
+            if self.name != None:
+                self.output_file.write("sram {} write\n".format(self.name))
 
     def response(self, port=0):
         data = self.output_reg[port]
@@ -66,12 +72,12 @@ class SRAM(Module):
 #         # depth: The number of address stored in the RAM
 #         # width: The number of words stored per address (NOT bits)
 #         # word-size is application dependent and implicit but <64b
-# 
+#
 #         self.width = width
 #         self.rd_port_used = None
 #         self.wr_port_used = None
 #         self.data = np.zeros((depth, width)).astype(dtype)
-# 
+#
 #     def rd(self, address):
 #         if self.rd_port_used is not None:
 #             raise RAMError("2 reads on a RAM with 1 rd-port")
@@ -81,7 +87,7 @@ class SRAM(Module):
 #         else:
 #             return self.data[address]
 #         return self.data_s
-# 
+#
 #     def wr(self, address, data):
 #         if self.wr_port_used is not None:
 #             raise RAMError("2 writes on a RAM with 1 wr-port")
