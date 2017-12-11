@@ -10,7 +10,7 @@ from log_parse import get_and_parse_log, assert_valid_log
 class Base(tk.Frame):
     '''Illustrate how to drag items on a Tkinter canvas'''
 
-    def __init__(self, parent, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, arr_x, arr_y):
+    def __init__(self, parent, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, arr_x, arr_y, positions_file):
         self.parent = parent
         tk.Frame.__init__(self, parent)
         self.tick_list = tick_list
@@ -48,13 +48,13 @@ class Base(tk.Frame):
         self.srams = []
         self.draggable_pe_box_coords = None
 
-        self._load_positions(positions_file="SAVED_POSITIONS.txt")
+        self._load_positions(positions_file=positions_file)
         self._add_arrows()
         self._add_pes()
         self._add_dragable_pe_box()
         self._add_srams()
         self._add_play_buttons()
-        self._add_save_button(positions_file="SAVED_POSITIONS.txt")
+        self._add_save_button(positions_file=positions_file)
         self._add_label_checkboxes()
         self._add_background()
 
@@ -321,9 +321,22 @@ class Base(tk.Frame):
 
         self.canvas.after(400, self.tick) # To make the thing infinitely repeat!
 
+import argparse
 
 if __name__ == "__main__":
-    file_path = '../../log.txt'
+    parser = argparse.ArgumentParser(description='Spatial Visualizer for 6888.')
+    parser.add_argument('log_file', metavar='log_file', type=str,
+                        help='Log file for gui to display.')
+    parser.add_argument('pos_save_file', metavar='pos_save_file', type=str,
+                        help='Positions save file for gui elements.')
+
+    args = parser.parse_args()
+    # print(args)
+
+    # file_path = '../../log.txt'
+    # positions_file = "SAVED_POSITIONS.txt"
+    file_path = args.log_file
+    positions_file = args.pos_save_file
 
     # Make sure log format is valid
     assert_valid_log(file_path)
@@ -331,7 +344,7 @@ if __name__ == "__main__":
         get_and_parse_log(file_path)
 
     root = tk.Tk()
-    base = Base(root, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, 8, 4)
+    base = Base(root, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, 8, 4, positions_file)
     print("tick 0")
     base.tick()
     root.mainloop()
