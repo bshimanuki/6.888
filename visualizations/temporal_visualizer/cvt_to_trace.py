@@ -37,14 +37,16 @@ def cvt_log_to_trace(input_log_file):
         else:
             name = line.split()[0]
             if line.split()[0] == "chn":
-                trace.append({"name": "my_chn", "cat": "chn", "ph": "B", "pid": hash(name), "ts":tick})
-                trace.append({"name": "my_chn", "cat": "chn", "ph": "E", "pid": hash(name), "ts":tick+1})
+                chn_name = line.split()[1]
+                trace.append({"name": chn_name, "cat": "chn", "ph": "B", "pid": hash(name), "ts":tick})
+                trace.append({"name": chn_name, "cat": "chn", "ph": "E", "pid": hash(name), "ts":tick+1})
             elif line.split()[0] == "pe":
                 trace.append({"name": "my_pe", "cat": "pe", "ph": "B", "pid": hash(name), "ts":tick})
                 trace.append({"name": "my_pe", "cat": "pe", "ph": "E", "pid": hash(name), "ts":tick+1})
             elif line.split()[0] == "sram":
-                trace.append({"name": "my_sram", "cat": "sram", "ph": "B", "pid": hash(name), "ts":tick})
-                trace.append({"name": "my_sram", "cat": "sram", "ph": "E", "pid": hash(name), "ts":tick+1})
+                sram_name = line.split()[1]
+                trace.append({"name": sram_name, "cat": "sram", "ph": "B", "pid": hash(name), "ts":tick})
+                trace.append({"name": sram_name, "cat": "sram", "ph": "E", "pid": hash(name), "ts":tick+1})
             else:
                 print("This line did not follow format: ", line)
                 assert(False)
@@ -77,7 +79,7 @@ if __name__ == '__main__':
         print("Provide the log file to parse as an argument.")
         print("Ex: python cvt_to_trace.py ../../log.txt.")
         exit()
-        
+
     input_file = sys.argv[1]
     # input_file = '../../log.txt'
     output_file = 'trace.json'
