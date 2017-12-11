@@ -1,333 +1,333 @@
 ---- Tick #0 -----
 chn arch_input_chn push
----- Tick #0 -----
+---- NTick #0 ----
 ---- Tick #1 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
----- Tick #1 -----
+---- NTick #1 ----
 ---- Tick #2 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #2 -----
+---- NTick #2 ----
 ---- Tick #3 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #3 -----
+---- NTick #3 ----
 ---- Tick #4 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #4 -----
+---- NTick #4 ----
 ---- Tick #5 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #5 -----
+---- NTick #5 ----
 ---- Tick #6 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #6 -----
+---- NTick #6 ----
 ---- Tick #7 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #7 -----
+---- NTick #7 ----
 ---- Tick #8 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #8 -----
+---- NTick #8 ----
 ---- Tick #9 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #9 -----
+---- NTick #9 ----
 ---- Tick #10 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #10 -----
+---- NTick #10 ----
 ---- Tick #11 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #11 -----
+---- NTick #11 ----
 ---- Tick #12 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #12 -----
+---- NTick #12 ----
 ---- Tick #13 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #13 -----
+---- NTick #13 ----
 ---- Tick #14 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #14 -----
+---- NTick #14 ----
 ---- Tick #15 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #15 -----
+---- NTick #15 ----
 ---- Tick #16 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #16 -----
+---- NTick #16 ----
 ---- Tick #17 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #17 -----
+---- NTick #17 ----
 ---- Tick #18 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #18 -----
+---- NTick #18 ----
 ---- Tick #19 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #19 -----
+---- NTick #19 ----
 ---- Tick #20 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #20 -----
+---- NTick #20 ----
 ---- Tick #21 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #21 -----
+---- NTick #21 ----
 ---- Tick #22 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #22 -----
+---- NTick #22 ----
 ---- Tick #23 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #23 -----
+---- NTick #23 ----
 ---- Tick #24 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #24 -----
+---- NTick #24 ----
 ---- Tick #25 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #25 -----
+---- NTick #25 ----
 ---- Tick #26 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #26 -----
+---- NTick #26 ----
 ---- Tick #27 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #27 -----
+---- NTick #27 ----
 ---- Tick #28 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #28 -----
+---- NTick #28 ----
 ---- Tick #29 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #29 -----
+---- NTick #29 ----
 ---- Tick #30 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #30 -----
+---- NTick #30 ----
 ---- Tick #31 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #31 -----
+---- NTick #31 ----
 ---- Tick #32 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #32 -----
+---- NTick #32 ----
 ---- Tick #33 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #33 -----
+---- NTick #33 ----
 ---- Tick #34 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #34 -----
+---- NTick #34 ----
 ---- Tick #35 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #35 -----
+---- NTick #35 ----
 ---- Tick #36 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #36 -----
+---- NTick #36 ----
 ---- Tick #37 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #37 -----
+---- NTick #37 ----
 ---- Tick #38 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #38 -----
+---- NTick #38 ----
 ---- Tick #39 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #39 -----
+---- NTick #39 ----
 ---- Tick #40 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #40 -----
+---- NTick #40 ----
 ---- Tick #41 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #41 -----
+---- NTick #41 ----
 ---- Tick #42 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #42 -----
+---- NTick #42 ----
 ---- Tick #43 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #43 -----
+---- NTick #43 ----
 ---- Tick #44 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #44 -----
+---- NTick #44 ----
 ---- Tick #45 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #45 -----
+---- NTick #45 ----
 ---- Tick #46 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn ifmap_wr_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #46 -----
+---- NTick #46 ----
 ---- Tick #47 -----
 chn arch_input_chn push
 chn arch_input_chn pop
 chn psum_wr_chn push
 chn ifmap_wr_chn pop
 sram ifmap_glb write
----- Tick #47 -----
+---- NTick #47 ----
 ---- Tick #48 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -335,7 +335,7 @@ chn psum_wr_chn push
 chn last_read push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #48 -----
+---- NTick #48 ----
 ---- Tick #49 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -345,7 +345,7 @@ chn last_read pop
 chn ifmap_rd_chn push
 chn psum_wr_chn pop
 sram psum_glb write
----- Tick #49 -----
+---- NTick #49 ----
 ---- Tick #50 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -390,7 +390,7 @@ chn pe_ifmap_chns_4_3 push
 chn pe_ifmap_chns_5_3 push
 chn pe_ifmap_chns_6_3 push
 chn pe_ifmap_chns_7_3 push
----- Tick #50 -----
+---- NTick #50 ----
 ---- Tick #51 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -442,7 +442,7 @@ chn pe_ifmap_chns_4_3 push
 chn pe_ifmap_chns_5_3 push
 chn pe_ifmap_chns_6_3 push
 chn pe_ifmap_chns_7_3 push
----- Tick #51 -----
+---- NTick #51 ----
 ---- Tick #52 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -499,7 +499,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #52 -----
+---- NTick #52 ----
 ---- Tick #53 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -565,7 +565,7 @@ chn pe_psum_chns_4_0 push
 chn pe_psum_chns_5_0 push
 chn pe_psum_chns_6_0 push
 chn pe_psum_chns_7_0 push
----- Tick #53 -----
+---- NTick #53 ----
 ---- Tick #54 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -635,7 +635,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #54 -----
+---- NTick #54 ----
 ---- Tick #55 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -721,7 +721,7 @@ chn pe_psum_chns_4_0 push
 chn pe_psum_chns_5_0 push
 chn pe_psum_chns_6_0 push
 chn pe_psum_chns_7_0 push
----- Tick #55 -----
+---- NTick #55 ----
 ---- Tick #56 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -814,7 +814,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #56 -----
+---- NTick #56 ----
 ---- Tick #57 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -924,7 +924,7 @@ chn pe_psum_chns_4_0 push
 chn pe_psum_chns_5_0 push
 chn pe_psum_chns_6_0 push
 chn pe_psum_chns_7_0 push
----- Tick #57 -----
+---- NTick #57 ----
 ---- Tick #58 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1042,7 +1042,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #58 -----
+---- NTick #58 ----
 ---- Tick #59 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1177,7 +1177,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #59 -----
+---- NTick #59 ----
 ---- Tick #60 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1316,7 +1316,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #60 -----
+---- NTick #60 ----
 ---- Tick #61 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1454,7 +1454,7 @@ chn pe_psum_chns_4_0 push
 chn pe_psum_chns_5_0 push
 chn pe_psum_chns_6_0 push
 chn pe_psum_chns_7_0 push
----- Tick #61 -----
+---- NTick #61 ----
 ---- Tick #62 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1596,7 +1596,7 @@ chn pe_psum_chns_0_0 push
 chn pe_psum_chns_1_0 push
 chn pe_psum_chns_2_0 push
 chn pe_psum_chns_3_0 push
----- Tick #62 -----
+---- NTick #62 ----
 ---- Tick #63 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1735,7 +1735,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #63 -----
+---- NTick #63 ----
 ---- Tick #64 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -1875,7 +1875,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #64 -----
+---- NTick #64 ----
 ---- Tick #65 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2007,7 +2007,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #65 -----
+---- NTick #65 ----
 ---- Tick #66 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2139,7 +2139,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #66 -----
+---- NTick #66 ----
 ---- Tick #67 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2267,7 +2267,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #67 -----
+---- NTick #67 ----
 ---- Tick #68 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2396,7 +2396,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #68 -----
+---- NTick #68 ----
 ---- Tick #69 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2525,7 +2525,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #69 -----
+---- NTick #69 ----
 ---- Tick #70 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2654,7 +2654,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #70 -----
+---- NTick #70 ----
 ---- Tick #71 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2783,7 +2783,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #71 -----
+---- NTick #71 ----
 ---- Tick #72 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -2912,7 +2912,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #72 -----
+---- NTick #72 ----
 ---- Tick #73 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3041,7 +3041,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #73 -----
+---- NTick #73 ----
 ---- Tick #74 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3170,7 +3170,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #74 -----
+---- NTick #74 ----
 ---- Tick #75 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3299,7 +3299,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #75 -----
+---- NTick #75 ----
 ---- Tick #76 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3428,7 +3428,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #76 -----
+---- NTick #76 ----
 ---- Tick #77 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3557,7 +3557,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #77 -----
+---- NTick #77 ----
 ---- Tick #78 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3686,7 +3686,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #78 -----
+---- NTick #78 ----
 ---- Tick #79 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3815,7 +3815,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #79 -----
+---- NTick #79 ----
 ---- Tick #80 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -3943,7 +3943,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #80 -----
+---- NTick #80 ----
 ---- Tick #81 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4071,7 +4071,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #81 -----
+---- NTick #81 ----
 ---- Tick #82 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4199,7 +4199,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #82 -----
+---- NTick #82 ----
 ---- Tick #83 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4331,7 +4331,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #83 -----
+---- NTick #83 ----
 ---- Tick #84 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4468,7 +4468,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #84 -----
+---- NTick #84 ----
 ---- Tick #85 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4605,7 +4605,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #85 -----
+---- NTick #85 ----
 ---- Tick #86 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4742,7 +4742,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #86 -----
+---- NTick #86 ----
 ---- Tick #87 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -4874,7 +4874,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #87 -----
+---- NTick #87 ----
 ---- Tick #88 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5003,7 +5003,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #88 -----
+---- NTick #88 ----
 ---- Tick #89 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5132,7 +5132,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #89 -----
+---- NTick #89 ----
 ---- Tick #90 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5261,7 +5261,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #90 -----
+---- NTick #90 ----
 ---- Tick #91 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5389,7 +5389,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #91 -----
+---- NTick #91 ----
 ---- Tick #92 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5518,7 +5518,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #92 -----
+---- NTick #92 ----
 ---- Tick #93 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5647,7 +5647,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #93 -----
+---- NTick #93 ----
 ---- Tick #94 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5776,7 +5776,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #94 -----
+---- NTick #94 ----
 ---- Tick #95 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -5904,7 +5904,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #95 -----
+---- NTick #95 ----
 ---- Tick #96 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6032,7 +6032,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #96 -----
+---- NTick #96 ----
 ---- Tick #97 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6161,7 +6161,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #97 -----
+---- NTick #97 ----
 ---- Tick #98 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6290,7 +6290,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #98 -----
+---- NTick #98 ----
 ---- Tick #99 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6419,7 +6419,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #99 -----
+---- NTick #99 ----
 ---- Tick #100 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6547,7 +6547,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #100 -----
+---- NTick #100 ----
 ---- Tick #101 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6676,7 +6676,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #101 -----
+---- NTick #101 ----
 ---- Tick #102 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6805,7 +6805,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #102 -----
+---- NTick #102 ----
 ---- Tick #103 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -6934,7 +6934,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #103 -----
+---- NTick #103 ----
 ---- Tick #104 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7062,7 +7062,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #104 -----
+---- NTick #104 ----
 ---- Tick #105 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7191,7 +7191,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #105 -----
+---- NTick #105 ----
 ---- Tick #106 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7320,7 +7320,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #106 -----
+---- NTick #106 ----
 ---- Tick #107 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7416,7 +7416,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #107 -----
+---- NTick #107 ----
 ---- Tick #108 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7543,7 +7543,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #108 -----
+---- NTick #108 ----
 ---- Tick #109 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7635,7 +7635,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #109 -----
+---- NTick #109 ----
 ---- Tick #110 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7760,7 +7760,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #110 -----
+---- NTick #110 ----
 ---- Tick #111 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7853,7 +7853,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #111 -----
+---- NTick #111 ----
 ---- Tick #112 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -7982,7 +7982,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #112 -----
+---- NTick #112 ----
 ---- Tick #113 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8078,7 +8078,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #113 -----
+---- NTick #113 ----
 ---- Tick #114 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8205,7 +8205,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #114 -----
+---- NTick #114 ----
 ---- Tick #115 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8301,7 +8301,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #115 -----
+---- NTick #115 ----
 ---- Tick #116 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8434,7 +8434,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #116 -----
+---- NTick #116 ----
 ---- Tick #117 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8536,7 +8536,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #117 -----
+---- NTick #117 ----
 ---- Tick #118 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8673,7 +8673,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #118 -----
+---- NTick #118 ----
 ---- Tick #119 -----
 chn arch_input_chn push
 chn arch_input_chn pop
@@ -8773,7 +8773,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #119 -----
+---- NTick #119 ----
 ---- Tick #120 -----
 chn arch_input_chn pop
 chn weights_wr_chn push
@@ -8899,7 +8899,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #120 -----
+---- NTick #120 ----
 ---- Tick #121 -----
 sram psum_glb read
 chn last_read push
@@ -8988,7 +8988,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #121 -----
+---- NTick #121 ----
 ---- Tick #122 -----
 sram psum_glb read
 chn last_read push
@@ -9108,7 +9108,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #122 -----
+---- NTick #122 ----
 ---- Tick #123 -----
 sram ifmap_glb read
 chn last_read push
@@ -9192,7 +9192,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #123 -----
+---- NTick #123 ----
 ---- Tick #124 -----
 sram ifmap_glb read
 chn last_read push
@@ -9311,7 +9311,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #124 -----
+---- NTick #124 ----
 ---- Tick #125 -----
 sram ifmap_glb read
 chn last_read push
@@ -9397,7 +9397,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #125 -----
+---- NTick #125 ----
 ---- Tick #126 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -9514,7 +9514,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #126 -----
+---- NTick #126 ----
 ---- Tick #127 -----
 sram psum_glb read
 chn last_read push
@@ -9596,7 +9596,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #127 -----
+---- NTick #127 ----
 ---- Tick #128 -----
 sram psum_glb read
 chn last_read push
@@ -9711,7 +9711,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #128 -----
+---- NTick #128 ----
 ---- Tick #129 -----
 sram ifmap_glb read
 chn last_read push
@@ -9795,7 +9795,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #129 -----
+---- NTick #129 ----
 ---- Tick #130 -----
 sram ifmap_glb read
 chn last_read push
@@ -9914,7 +9914,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #130 -----
+---- NTick #130 ----
 ---- Tick #131 -----
 sram ifmap_glb read
 chn last_read push
@@ -10000,7 +10000,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #131 -----
+---- NTick #131 ----
 ---- Tick #132 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -10117,7 +10117,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #132 -----
+---- NTick #132 ----
 ---- Tick #133 -----
 sram psum_glb read
 chn last_read push
@@ -10199,7 +10199,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #133 -----
+---- NTick #133 ----
 ---- Tick #134 -----
 sram psum_glb read
 chn last_read push
@@ -10314,7 +10314,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #134 -----
+---- NTick #134 ----
 ---- Tick #135 -----
 sram ifmap_glb read
 chn last_read push
@@ -10398,7 +10398,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #135 -----
+---- NTick #135 ----
 ---- Tick #136 -----
 sram ifmap_glb read
 chn last_read push
@@ -10517,7 +10517,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #136 -----
+---- NTick #136 ----
 ---- Tick #137 -----
 sram ifmap_glb read
 chn last_read push
@@ -10603,7 +10603,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #137 -----
+---- NTick #137 ----
 ---- Tick #138 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -10720,7 +10720,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #138 -----
+---- NTick #138 ----
 ---- Tick #139 -----
 sram psum_glb read
 chn last_read push
@@ -10802,7 +10802,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #139 -----
+---- NTick #139 ----
 ---- Tick #140 -----
 sram psum_glb read
 chn last_read push
@@ -10917,7 +10917,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #140 -----
+---- NTick #140 ----
 ---- Tick #141 -----
 sram ifmap_glb read
 chn last_read push
@@ -11001,7 +11001,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #141 -----
+---- NTick #141 ----
 ---- Tick #142 -----
 sram ifmap_glb read
 chn last_read push
@@ -11120,7 +11120,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #142 -----
+---- NTick #142 ----
 ---- Tick #143 -----
 sram ifmap_glb read
 chn last_read push
@@ -11206,7 +11206,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #143 -----
+---- NTick #143 ----
 ---- Tick #144 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -11323,7 +11323,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #144 -----
+---- NTick #144 ----
 ---- Tick #145 -----
 sram psum_glb read
 chn last_read push
@@ -11405,7 +11405,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #145 -----
+---- NTick #145 ----
 ---- Tick #146 -----
 sram psum_glb read
 chn last_read push
@@ -11520,7 +11520,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #146 -----
+---- NTick #146 ----
 ---- Tick #147 -----
 sram ifmap_glb read
 chn last_read push
@@ -11608,7 +11608,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #147 -----
+---- NTick #147 ----
 ---- Tick #148 -----
 sram ifmap_glb read
 chn last_read push
@@ -11735,7 +11735,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #148 -----
+---- NTick #148 ----
 ---- Tick #149 -----
 sram ifmap_glb read
 chn last_read push
@@ -11829,7 +11829,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #149 -----
+---- NTick #149 ----
 ---- Tick #150 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -11954,7 +11954,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #150 -----
+---- NTick #150 ----
 ---- Tick #151 -----
 sram psum_glb read
 chn last_read push
@@ -12040,7 +12040,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #151 -----
+---- NTick #151 ----
 ---- Tick #152 -----
 sram psum_glb read
 chn last_read push
@@ -12155,7 +12155,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #152 -----
+---- NTick #152 ----
 ---- Tick #153 -----
 sram ifmap_glb read
 chn last_read push
@@ -12239,7 +12239,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #153 -----
+---- NTick #153 ----
 ---- Tick #154 -----
 sram ifmap_glb read
 chn last_read push
@@ -12358,7 +12358,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #154 -----
+---- NTick #154 ----
 ---- Tick #155 -----
 chn last_read push
 chn last_read pop
@@ -12443,7 +12443,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #155 -----
+---- NTick #155 ----
 ---- Tick #156 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -12560,7 +12560,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #156 -----
+---- NTick #156 ----
 ---- Tick #157 -----
 sram psum_glb read
 chn last_read push
@@ -12642,7 +12642,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #157 -----
+---- NTick #157 ----
 ---- Tick #158 -----
 sram psum_glb read
 chn last_read push
@@ -12757,7 +12757,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #158 -----
+---- NTick #158 ----
 ---- Tick #159 -----
 sram ifmap_glb read
 chn last_read push
@@ -12841,7 +12841,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #159 -----
+---- NTick #159 ----
 ---- Tick #160 -----
 sram ifmap_glb read
 chn last_read push
@@ -12960,7 +12960,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #160 -----
+---- NTick #160 ----
 ---- Tick #161 -----
 sram ifmap_glb read
 chn last_read push
@@ -13046,7 +13046,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #161 -----
+---- NTick #161 ----
 ---- Tick #162 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -13163,7 +13163,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #162 -----
+---- NTick #162 ----
 ---- Tick #163 -----
 sram psum_glb read
 chn last_read push
@@ -13245,7 +13245,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #163 -----
+---- NTick #163 ----
 ---- Tick #164 -----
 sram psum_glb read
 chn last_read push
@@ -13360,7 +13360,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #164 -----
+---- NTick #164 ----
 ---- Tick #165 -----
 chn last_read push
 sram psum_glb read
@@ -13443,7 +13443,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #165 -----
+---- NTick #165 ----
 ---- Tick #166 -----
 sram ifmap_glb read
 chn last_read push
@@ -13562,7 +13562,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #166 -----
+---- NTick #166 ----
 ---- Tick #167 -----
 sram ifmap_glb read
 chn last_read push
@@ -13648,7 +13648,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #167 -----
+---- NTick #167 ----
 ---- Tick #168 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -13765,7 +13765,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #168 -----
+---- NTick #168 ----
 ---- Tick #169 -----
 sram psum_glb read
 chn last_read push
@@ -13847,7 +13847,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #169 -----
+---- NTick #169 ----
 ---- Tick #170 -----
 sram psum_glb read
 chn last_read push
@@ -13962,7 +13962,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #170 -----
+---- NTick #170 ----
 ---- Tick #171 -----
 sram ifmap_glb read
 chn last_read push
@@ -14046,7 +14046,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #171 -----
+---- NTick #171 ----
 ---- Tick #172 -----
 chn last_read push
 chn last_read pop
@@ -14164,7 +14164,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #172 -----
+---- NTick #172 ----
 ---- Tick #173 -----
 sram ifmap_glb read
 chn last_read push
@@ -14250,7 +14250,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #173 -----
+---- NTick #173 ----
 ---- Tick #174 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -14367,7 +14367,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #174 -----
+---- NTick #174 ----
 ---- Tick #175 -----
 sram psum_glb read
 chn last_read push
@@ -14449,7 +14449,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #175 -----
+---- NTick #175 ----
 ---- Tick #176 -----
 sram psum_glb read
 chn last_read push
@@ -14564,7 +14564,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #176 -----
+---- NTick #176 ----
 ---- Tick #177 -----
 sram ifmap_glb read
 chn last_read push
@@ -14648,7 +14648,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #177 -----
+---- NTick #177 ----
 ---- Tick #178 -----
 sram ifmap_glb read
 chn last_read push
@@ -14767,7 +14767,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #178 -----
+---- NTick #178 ----
 ---- Tick #179 -----
 chn last_read push
 chn last_read pop
@@ -14856,7 +14856,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #179 -----
+---- NTick #179 ----
 ---- Tick #180 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -14981,7 +14981,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #180 -----
+---- NTick #180 ----
 ---- Tick #181 -----
 sram psum_glb read
 chn last_read push
@@ -15071,7 +15071,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #181 -----
+---- NTick #181 ----
 ---- Tick #182 -----
 sram psum_glb read
 chn last_read push
@@ -15194,7 +15194,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #182 -----
+---- NTick #182 ----
 ---- Tick #183 -----
 chn last_read push
 sram psum_glb read
@@ -15281,7 +15281,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #183 -----
+---- NTick #183 ----
 ---- Tick #184 -----
 sram ifmap_glb read
 chn last_read push
@@ -15400,7 +15400,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #184 -----
+---- NTick #184 ----
 ---- Tick #185 -----
 sram ifmap_glb read
 chn last_read push
@@ -15486,7 +15486,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #185 -----
+---- NTick #185 ----
 ---- Tick #186 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -15603,7 +15603,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #186 -----
+---- NTick #186 ----
 ---- Tick #187 -----
 sram psum_glb read
 chn last_read push
@@ -15685,7 +15685,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #187 -----
+---- NTick #187 ----
 ---- Tick #188 -----
 sram psum_glb read
 chn last_read push
@@ -15800,7 +15800,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #188 -----
+---- NTick #188 ----
 ---- Tick #189 -----
 sram ifmap_glb read
 chn last_read push
@@ -15884,7 +15884,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #189 -----
+---- NTick #189 ----
 ---- Tick #190 -----
 chn last_read push
 chn last_read pop
@@ -16002,7 +16002,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #190 -----
+---- NTick #190 ----
 ---- Tick #191 -----
 sram ifmap_glb read
 chn last_read push
@@ -16088,7 +16088,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #191 -----
+---- NTick #191 ----
 ---- Tick #192 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -16205,7 +16205,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #192 -----
+---- NTick #192 ----
 ---- Tick #193 -----
 sram psum_glb read
 chn last_read push
@@ -16287,7 +16287,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #193 -----
+---- NTick #193 ----
 ---- Tick #194 -----
 sram psum_glb read
 chn last_read push
@@ -16402,7 +16402,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #194 -----
+---- NTick #194 ----
 ---- Tick #195 -----
 sram ifmap_glb read
 chn last_read push
@@ -16486,7 +16486,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #195 -----
+---- NTick #195 ----
 ---- Tick #196 -----
 sram ifmap_glb read
 chn last_read push
@@ -16605,7 +16605,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #196 -----
+---- NTick #196 ----
 ---- Tick #197 -----
 chn last_read push
 chn last_read pop
@@ -16690,7 +16690,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #197 -----
+---- NTick #197 ----
 ---- Tick #198 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -16807,7 +16807,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #198 -----
+---- NTick #198 ----
 ---- Tick #199 -----
 sram psum_glb read
 chn last_read push
@@ -16889,7 +16889,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #199 -----
+---- NTick #199 ----
 ---- Tick #200 -----
 sram psum_glb read
 chn last_read push
@@ -17004,7 +17004,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #200 -----
+---- NTick #200 ----
 ---- Tick #201 -----
 sram ifmap_glb read
 chn last_read push
@@ -17088,7 +17088,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #201 -----
+---- NTick #201 ----
 ---- Tick #202 -----
 sram ifmap_glb read
 chn last_read push
@@ -17207,7 +17207,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #202 -----
+---- NTick #202 ----
 ---- Tick #203 -----
 sram ifmap_glb read
 chn last_read push
@@ -17293,7 +17293,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #203 -----
+---- NTick #203 ----
 ---- Tick #204 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -17410,7 +17410,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #204 -----
+---- NTick #204 ----
 ---- Tick #205 -----
 sram psum_glb read
 chn last_read push
@@ -17492,7 +17492,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #205 -----
+---- NTick #205 ----
 ---- Tick #206 -----
 sram psum_glb read
 chn last_read push
@@ -17607,7 +17607,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #206 -----
+---- NTick #206 ----
 ---- Tick #207 -----
 chn last_read push
 sram psum_glb read
@@ -17690,7 +17690,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #207 -----
+---- NTick #207 ----
 ---- Tick #208 -----
 chn last_read push
 chn last_read pop
@@ -17808,7 +17808,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #208 -----
+---- NTick #208 ----
 ---- Tick #209 -----
 chn last_read push
 chn last_read pop
@@ -17893,7 +17893,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #209 -----
+---- NTick #209 ----
 ---- Tick #210 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -18010,7 +18010,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #210 -----
+---- NTick #210 ----
 ---- Tick #211 -----
 sram psum_glb read
 chn last_read push
@@ -18096,7 +18096,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #211 -----
+---- NTick #211 ----
 ---- Tick #212 -----
 sram psum_glb read
 chn last_read push
@@ -18219,7 +18219,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #212 -----
+---- NTick #212 ----
 ---- Tick #213 -----
 chn last_read push
 sram psum_glb read
@@ -18310,7 +18310,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #213 -----
+---- NTick #213 ----
 ---- Tick #214 -----
 sram ifmap_glb read
 chn last_read push
@@ -18437,7 +18437,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #214 -----
+---- NTick #214 ----
 ---- Tick #215 -----
 sram ifmap_glb read
 chn last_read push
@@ -18527,7 +18527,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #215 -----
+---- NTick #215 ----
 ---- Tick #216 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -18644,7 +18644,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #216 -----
+---- NTick #216 ----
 ---- Tick #217 -----
 sram psum_glb read
 chn last_read push
@@ -18726,7 +18726,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #217 -----
+---- NTick #217 ----
 ---- Tick #218 -----
 sram psum_glb read
 chn last_read push
@@ -18841,7 +18841,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #218 -----
+---- NTick #218 ----
 ---- Tick #219 -----
 sram ifmap_glb read
 chn last_read push
@@ -18925,7 +18925,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #219 -----
+---- NTick #219 ----
 ---- Tick #220 -----
 sram ifmap_glb read
 chn last_read push
@@ -19044,7 +19044,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #220 -----
+---- NTick #220 ----
 ---- Tick #221 -----
 sram ifmap_glb read
 chn last_read push
@@ -19130,7 +19130,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #221 -----
+---- NTick #221 ----
 ---- Tick #222 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -19247,7 +19247,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #222 -----
+---- NTick #222 ----
 ---- Tick #223 -----
 sram psum_glb read
 chn last_read push
@@ -19329,7 +19329,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #223 -----
+---- NTick #223 ----
 ---- Tick #224 -----
 sram psum_glb read
 chn last_read push
@@ -19444,7 +19444,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #224 -----
+---- NTick #224 ----
 ---- Tick #225 -----
 sram ifmap_glb read
 chn last_read push
@@ -19528,7 +19528,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #225 -----
+---- NTick #225 ----
 ---- Tick #226 -----
 sram ifmap_glb read
 chn last_read push
@@ -19647,7 +19647,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #226 -----
+---- NTick #226 ----
 ---- Tick #227 -----
 sram ifmap_glb read
 chn last_read push
@@ -19733,7 +19733,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #227 -----
+---- NTick #227 ----
 ---- Tick #228 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -19850,7 +19850,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #228 -----
+---- NTick #228 ----
 ---- Tick #229 -----
 sram psum_glb read
 chn last_read push
@@ -19932,7 +19932,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #229 -----
+---- NTick #229 ----
 ---- Tick #230 -----
 sram psum_glb read
 chn last_read push
@@ -20047,7 +20047,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #230 -----
+---- NTick #230 ----
 ---- Tick #231 -----
 sram ifmap_glb read
 chn last_read push
@@ -20131,7 +20131,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #231 -----
+---- NTick #231 ----
 ---- Tick #232 -----
 sram ifmap_glb read
 chn last_read push
@@ -20250,7 +20250,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #232 -----
+---- NTick #232 ----
 ---- Tick #233 -----
 sram ifmap_glb read
 chn last_read push
@@ -20336,7 +20336,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #233 -----
+---- NTick #233 ----
 ---- Tick #234 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -20453,7 +20453,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #234 -----
+---- NTick #234 ----
 ---- Tick #235 -----
 sram psum_glb read
 chn last_read push
@@ -20535,7 +20535,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #235 -----
+---- NTick #235 ----
 ---- Tick #236 -----
 sram psum_glb read
 chn last_read push
@@ -20650,7 +20650,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #236 -----
+---- NTick #236 ----
 ---- Tick #237 -----
 sram ifmap_glb read
 chn last_read push
@@ -20734,7 +20734,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #237 -----
+---- NTick #237 ----
 ---- Tick #238 -----
 chn last_read push
 chn last_read pop
@@ -20852,7 +20852,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #238 -----
+---- NTick #238 ----
 ---- Tick #239 -----
 chn last_read push
 chn last_read pop
@@ -20937,7 +20937,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #239 -----
+---- NTick #239 ----
 ---- Tick #240 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -21054,7 +21054,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #240 -----
+---- NTick #240 ----
 ---- Tick #241 -----
 sram psum_glb read
 chn last_read push
@@ -21136,7 +21136,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #241 -----
+---- NTick #241 ----
 ---- Tick #242 -----
 sram psum_glb read
 chn last_read push
@@ -21251,7 +21251,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #242 -----
+---- NTick #242 ----
 ---- Tick #243 -----
 chn last_read push
 sram psum_glb read
@@ -21338,7 +21338,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #243 -----
+---- NTick #243 ----
 ---- Tick #244 -----
 chn last_read push
 chn last_read pop
@@ -21464,7 +21464,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #244 -----
+---- NTick #244 ----
 ---- Tick #245 -----
 sram ifmap_glb read
 chn last_read push
@@ -21558,7 +21558,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #245 -----
+---- NTick #245 ----
 ---- Tick #246 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -21683,7 +21683,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #246 -----
+---- NTick #246 ----
 ---- Tick #247 -----
 sram psum_glb read
 chn last_read push
@@ -21769,7 +21769,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #247 -----
+---- NTick #247 ----
 ---- Tick #248 -----
 sram psum_glb read
 chn last_read push
@@ -21884,7 +21884,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #248 -----
+---- NTick #248 ----
 ---- Tick #249 -----
 sram ifmap_glb read
 chn last_read push
@@ -21968,7 +21968,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #249 -----
+---- NTick #249 ----
 ---- Tick #250 -----
 sram ifmap_glb read
 chn last_read push
@@ -22087,7 +22087,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #250 -----
+---- NTick #250 ----
 ---- Tick #251 -----
 chn last_read push
 chn last_read pop
@@ -22172,7 +22172,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #251 -----
+---- NTick #251 ----
 ---- Tick #252 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -22289,7 +22289,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #252 -----
+---- NTick #252 ----
 ---- Tick #253 -----
 sram psum_glb read
 chn last_read push
@@ -22371,7 +22371,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #253 -----
+---- NTick #253 ----
 ---- Tick #254 -----
 sram psum_glb read
 chn last_read push
@@ -22486,7 +22486,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #254 -----
+---- NTick #254 ----
 ---- Tick #255 -----
 sram ifmap_glb read
 chn last_read push
@@ -22570,7 +22570,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #255 -----
+---- NTick #255 ----
 ---- Tick #256 -----
 sram ifmap_glb read
 chn last_read push
@@ -22689,7 +22689,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #256 -----
+---- NTick #256 ----
 ---- Tick #257 -----
 sram ifmap_glb read
 chn last_read push
@@ -22775,7 +22775,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #257 -----
+---- NTick #257 ----
 ---- Tick #258 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -22892,7 +22892,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #258 -----
+---- NTick #258 ----
 ---- Tick #259 -----
 sram psum_glb read
 chn last_read push
@@ -22974,7 +22974,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #259 -----
+---- NTick #259 ----
 ---- Tick #260 -----
 sram psum_glb read
 chn last_read push
@@ -23089,7 +23089,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #260 -----
+---- NTick #260 ----
 ---- Tick #261 -----
 chn last_read push
 sram psum_glb read
@@ -23172,7 +23172,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #261 -----
+---- NTick #261 ----
 ---- Tick #262 -----
 sram ifmap_glb read
 chn last_read push
@@ -23291,7 +23291,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #262 -----
+---- NTick #262 ----
 ---- Tick #263 -----
 sram ifmap_glb read
 chn last_read push
@@ -23377,7 +23377,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #263 -----
+---- NTick #263 ----
 ---- Tick #264 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -23494,7 +23494,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #264 -----
+---- NTick #264 ----
 ---- Tick #265 -----
 sram psum_glb read
 chn last_read push
@@ -23576,7 +23576,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #265 -----
+---- NTick #265 ----
 ---- Tick #266 -----
 sram psum_glb read
 chn last_read push
@@ -23691,7 +23691,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #266 -----
+---- NTick #266 ----
 ---- Tick #267 -----
 sram ifmap_glb read
 chn last_read push
@@ -23775,7 +23775,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #267 -----
+---- NTick #267 ----
 ---- Tick #268 -----
 chn last_read push
 chn last_read pop
@@ -23893,7 +23893,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #268 -----
+---- NTick #268 ----
 ---- Tick #269 -----
 chn last_read push
 chn last_read pop
@@ -23978,7 +23978,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #269 -----
+---- NTick #269 ----
 ---- Tick #270 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -24095,7 +24095,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #270 -----
+---- NTick #270 ----
 ---- Tick #271 -----
 sram psum_glb read
 chn last_read push
@@ -24177,7 +24177,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #271 -----
+---- NTick #271 ----
 ---- Tick #272 -----
 sram psum_glb read
 chn last_read push
@@ -24292,7 +24292,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #272 -----
+---- NTick #272 ----
 ---- Tick #273 -----
 chn last_read push
 sram psum_glb read
@@ -24375,7 +24375,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #273 -----
+---- NTick #273 ----
 ---- Tick #274 -----
 chn last_read push
 chn last_read pop
@@ -24493,7 +24493,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #274 -----
+---- NTick #274 ----
 ---- Tick #275 -----
 chn last_read push
 chn last_read pop
@@ -24582,7 +24582,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #275 -----
+---- NTick #275 ----
 ---- Tick #276 -----
 chn last_read pop
 chn ifmap_rd_chn push
@@ -24707,7 +24707,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #276 -----
+---- NTick #276 ----
 ---- Tick #277 -----
 sram psum_glb read
 chn last_read push
@@ -24797,7 +24797,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #277 -----
+---- NTick #277 ----
 ---- Tick #278 -----
 sram psum_glb read
 chn last_read push
@@ -24920,7 +24920,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #278 -----
+---- NTick #278 ----
 ---- Tick #279 -----
 sram psum_glb read
 chn last_read push
@@ -25006,7 +25006,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #279 -----
+---- NTick #279 ----
 ---- Tick #280 -----
 sram psum_glb read
 chn last_read push
@@ -25121,7 +25121,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #280 -----
+---- NTick #280 ----
 ---- Tick #281 -----
 sram psum_glb read
 chn last_read push
@@ -25203,7 +25203,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #281 -----
+---- NTick #281 ----
 ---- Tick #282 -----
 sram psum_glb read
 chn last_read push
@@ -25285,7 +25285,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #282 -----
+---- NTick #282 ----
 ---- Tick #283 -----
 sram psum_glb read
 chn last_read push
@@ -25367,7 +25367,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #283 -----
+---- NTick #283 ----
 ---- Tick #284 -----
 sram psum_glb read
 chn last_read push
@@ -25449,7 +25449,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #284 -----
+---- NTick #284 ----
 ---- Tick #285 -----
 sram psum_glb read
 chn last_read push
@@ -25531,7 +25531,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #285 -----
+---- NTick #285 ----
 ---- Tick #286 -----
 sram psum_glb read
 chn last_read push
@@ -25613,7 +25613,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #286 -----
+---- NTick #286 ----
 ---- Tick #287 -----
 sram psum_glb read
 chn last_read push
@@ -25695,7 +25695,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #287 -----
+---- NTick #287 ----
 ---- Tick #288 -----
 sram psum_glb read
 chn last_read push
@@ -25777,7 +25777,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #288 -----
+---- NTick #288 ----
 ---- Tick #289 -----
 sram psum_glb read
 chn last_read push
@@ -25859,7 +25859,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #289 -----
+---- NTick #289 ----
 ---- Tick #290 -----
 sram psum_glb read
 chn last_read push
@@ -25941,7 +25941,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #290 -----
+---- NTick #290 ----
 ---- Tick #291 -----
 sram psum_glb read
 chn last_read push
@@ -26023,7 +26023,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #291 -----
+---- NTick #291 ----
 ---- Tick #292 -----
 sram psum_glb read
 chn last_read push
@@ -26105,7 +26105,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #292 -----
+---- NTick #292 ----
 ---- Tick #293 -----
 sram psum_glb read
 chn last_read push
@@ -26187,7 +26187,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #293 -----
+---- NTick #293 ----
 ---- Tick #294 -----
 sram psum_glb read
 chn last_read push
@@ -26269,7 +26269,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #294 -----
+---- NTick #294 ----
 ---- Tick #295 -----
 sram psum_glb read
 chn last_read push
@@ -26351,7 +26351,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #295 -----
+---- NTick #295 ----
 ---- Tick #296 -----
 sram psum_glb read
 chn last_read push
@@ -26433,7 +26433,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #296 -----
+---- NTick #296 ----
 ---- Tick #297 -----
 sram psum_glb read
 chn last_read push
@@ -26515,7 +26515,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #297 -----
+---- NTick #297 ----
 ---- Tick #298 -----
 sram psum_glb read
 chn last_read push
@@ -26597,7 +26597,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #298 -----
+---- NTick #298 ----
 ---- Tick #299 -----
 sram psum_glb read
 chn last_read push
@@ -26679,7 +26679,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #299 -----
+---- NTick #299 ----
 ---- Tick #300 -----
 sram psum_glb read
 chn last_read push
@@ -26761,7 +26761,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #300 -----
+---- NTick #300 ----
 ---- Tick #301 -----
 sram psum_glb read
 chn last_read push
@@ -26843,7 +26843,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #301 -----
+---- NTick #301 ----
 ---- Tick #302 -----
 sram psum_glb read
 chn last_read push
@@ -26925,7 +26925,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #302 -----
+---- NTick #302 ----
 ---- Tick #303 -----
 sram psum_glb read
 chn last_read push
@@ -27007,7 +27007,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #303 -----
+---- NTick #303 ----
 ---- Tick #304 -----
 sram psum_glb read
 chn last_read push
@@ -27089,7 +27089,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #304 -----
+---- NTick #304 ----
 ---- Tick #305 -----
 sram psum_glb read
 chn last_read push
@@ -27171,7 +27171,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #305 -----
+---- NTick #305 ----
 ---- Tick #306 -----
 sram psum_glb read
 chn last_read push
@@ -27253,7 +27253,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #306 -----
+---- NTick #306 ----
 ---- Tick #307 -----
 sram psum_glb read
 chn last_read push
@@ -27339,7 +27339,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #307 -----
+---- NTick #307 ----
 ---- Tick #308 -----
 sram psum_glb read
 chn last_read push
@@ -27429,7 +27429,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #308 -----
+---- NTick #308 ----
 ---- Tick #309 -----
 sram psum_glb read
 chn last_read push
@@ -27519,7 +27519,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #309 -----
+---- NTick #309 ----
 ---- Tick #310 -----
 sram psum_glb read
 chn last_read push
@@ -27609,7 +27609,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #310 -----
+---- NTick #310 ----
 ---- Tick #311 -----
 sram psum_glb read
 chn last_read push
@@ -27695,7 +27695,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #311 -----
+---- NTick #311 ----
 ---- Tick #312 -----
 sram psum_glb read
 chn last_read push
@@ -27777,7 +27777,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #312 -----
+---- NTick #312 ----
 ---- Tick #313 -----
 sram psum_glb read
 chn last_read push
@@ -27859,7 +27859,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #313 -----
+---- NTick #313 ----
 ---- Tick #314 -----
 sram psum_glb read
 chn last_read push
@@ -27941,7 +27941,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #314 -----
+---- NTick #314 ----
 ---- Tick #315 -----
 sram psum_glb read
 chn last_read push
@@ -28023,7 +28023,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #315 -----
+---- NTick #315 ----
 ---- Tick #316 -----
 sram psum_glb read
 chn last_read push
@@ -28105,7 +28105,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_noc_wr_chn push
----- Tick #316 -----
+---- NTick #316 ----
 ---- Tick #317 -----
 sram psum_glb read
 chn last_read push
@@ -28187,7 +28187,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_noc_wr_chn push
----- Tick #317 -----
+---- NTick #317 ----
 ---- Tick #318 -----
 sram psum_glb read
 chn last_read push
@@ -28269,7 +28269,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #318 -----
+---- NTick #318 ----
 ---- Tick #319 -----
 chn psum_output_chn pop
 chn arch_output_chn push
@@ -28351,7 +28351,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #319 -----
+---- NTick #319 ----
 ---- Tick #320 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28434,7 +28434,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #320 -----
+---- NTick #320 ----
 ---- Tick #321 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28517,7 +28517,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #321 -----
+---- NTick #321 ----
 ---- Tick #322 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28600,7 +28600,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #322 -----
+---- NTick #322 ----
 ---- Tick #323 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28683,7 +28683,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #323 -----
+---- NTick #323 ----
 ---- Tick #324 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28766,7 +28766,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #324 -----
+---- NTick #324 ----
 ---- Tick #325 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28849,7 +28849,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #325 -----
+---- NTick #325 ----
 ---- Tick #326 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -28932,7 +28932,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #326 -----
+---- NTick #326 ----
 ---- Tick #327 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29015,7 +29015,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #327 -----
+---- NTick #327 ----
 ---- Tick #328 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29098,7 +29098,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #328 -----
+---- NTick #328 ----
 ---- Tick #329 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29181,7 +29181,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #329 -----
+---- NTick #329 ----
 ---- Tick #330 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29264,7 +29264,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #330 -----
+---- NTick #330 ----
 ---- Tick #331 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29347,7 +29347,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #331 -----
+---- NTick #331 ----
 ---- Tick #332 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29430,7 +29430,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #332 -----
+---- NTick #332 ----
 ---- Tick #333 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29513,7 +29513,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #333 -----
+---- NTick #333 ----
 ---- Tick #334 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29596,7 +29596,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #334 -----
+---- NTick #334 ----
 ---- Tick #335 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29679,7 +29679,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #335 -----
+---- NTick #335 ----
 ---- Tick #336 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29762,7 +29762,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #336 -----
+---- NTick #336 ----
 ---- Tick #337 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29845,7 +29845,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #337 -----
+---- NTick #337 ----
 ---- Tick #338 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -29926,7 +29926,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #338 -----
+---- NTick #338 ----
 ---- Tick #339 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30009,7 +30009,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #339 -----
+---- NTick #339 ----
 ---- Tick #340 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30091,7 +30091,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #340 -----
+---- NTick #340 ----
 ---- Tick #341 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30157,7 +30157,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #341 -----
+---- NTick #341 ----
 ---- Tick #342 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30207,7 +30207,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #342 -----
+---- NTick #342 ----
 ---- Tick #343 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30237,7 +30237,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #343 -----
+---- NTick #343 ----
 ---- Tick #344 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30247,7 +30247,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #344 -----
+---- NTick #344 ----
 ---- Tick #345 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30257,7 +30257,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #345 -----
+---- NTick #345 ----
 ---- Tick #346 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30267,7 +30267,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #346 -----
+---- NTick #346 ----
 ---- Tick #347 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30277,7 +30277,7 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #347 -----
+---- NTick #347 ----
 ---- Tick #348 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30287,7 +30287,7 @@ chn pe_psum_chns_1_3 pop
 chn pe_psum_chns_2_3 pop
 chn pe_psum_chns_3_3 pop
 chn psum_output_chn push
----- Tick #348 -----
+---- NTick #348 ----
 ---- Tick #349 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
@@ -30297,11 +30297,11 @@ chn pe_psum_chns_5_3 pop
 chn pe_psum_chns_6_3 pop
 chn pe_psum_chns_7_3 pop
 chn psum_output_chn push
----- Tick #349 -----
+---- NTick #349 ----
 ---- Tick #350 -----
 chn arch_output_chn pop
 chn psum_output_chn pop
 chn arch_output_chn push
----- Tick #350 -----
+---- NTick #350 ----
 ---- Tick #351 -----
 chn arch_output_chn pop

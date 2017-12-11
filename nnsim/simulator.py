@@ -25,7 +25,7 @@ class Simulator(object):
                 self.tb_module.__tick__()
                 if verbose:
                     print("---- NTick #%d ----" % self.clk_ticks)
-                self.tb_module.output_file.write("---- Tick #{} -----\n".format(self.clk_ticks))
+                self.tb_module.output_file.write("---- NTick #{} ----\n".format(self.clk_ticks))
                 self.tb_module.__ntick__()
                 self.clk_ticks += 1
                 curr_ticks += 1

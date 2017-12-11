@@ -58,7 +58,7 @@ def print_trace(trace):
     print(']')
 
 if __name__ == '__main__':
-    input_file = '../wsarch_log.txt'
+    input_file = '../log.txt'
     output_file = 'trace.json'
 
     # Convert

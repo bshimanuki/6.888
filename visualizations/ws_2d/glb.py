@@ -223,8 +223,4 @@ class WeightsGLB(Module):
     def tick(self):
         if self.wr_chn.valid() and self.rd_chn.vacancy():
             data = self.wr_chn.pop()
-            self.raw_stats['wr'] += 1
-            # print("sram weight_glb write")
             self.rd_chn.push(data)
-            self.raw_stats['rd'] += 1
-            # print("sram weight_glb read")

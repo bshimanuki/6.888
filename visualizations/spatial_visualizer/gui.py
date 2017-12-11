@@ -31,7 +31,7 @@ class Base(tk.Frame):
         # Add GUI elements
         self.NUM_ARROWS = len(self.chn_name_map)
         self.NUM_PES = len(self.pe_name_map)
-        self.NUM_SRAMS = 3
+        self.NUM_SRAMS = len(self.sram_name_map)
         self.label_state = False
         print("NUM_ARROWS={}, NUM_PES={}, NUM_SRAMS={}".format(
             self.NUM_ARROWS,
@@ -283,7 +283,7 @@ class Base(tk.Frame):
 
 
 if __name__ == "__main__":
-    file_path = 'LOG.txt'
+    file_path = '../log.txt'
 
     # Make sure log format is valid
     assert_valid_log(file_path)
