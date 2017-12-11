@@ -14,8 +14,8 @@ class GLB(Module):
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, width), 'rd': 0, 'wr': 0}
 
-        self.sram = SRAM(glb_depth, width, nports=2)
-        self.last_read = Channel(3)
+        self.sram = SRAM(glb_depth, width, nports=2, name='fc_glb')
+        self.last_read = Channel(3, name='last_read')
 
         self.curr_data = Reg([])
         self.wr_done = False

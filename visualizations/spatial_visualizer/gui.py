@@ -267,6 +267,13 @@ class Base(tk.Frame):
             assert(0 <= sram_num and sram_num < self.NUM_SRAMS)
             self.srams[sram_num].set_light(cmd)
 
+        elif search("CONV MODE", line) != None:
+            # Switched to CONV MODE
+            print("CONV MODE")
+        elif search("FC MODE", line) != None:
+            # Switched to FC MODE
+            print("FC MODE")
+
 
     def tick(self):
         if self.display_labels.get() != self.label_state:
@@ -283,7 +290,7 @@ class Base(tk.Frame):
 
 
 if __name__ == "__main__":
-    file_path = '../log.txt'
+    file_path = '../../log.txt'
 
     # Make sure log format is valid
     assert_valid_log(file_path)

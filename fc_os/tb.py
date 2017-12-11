@@ -29,8 +29,8 @@ class OSArchTB(Module):
         self.ceil_batch = None
         self.ceil_output = None
 
-        self.input_chn = Channel()
-        self.output_chn = Channel()
+        self.input_chn = Channel(name='arch_input_chn')
+        self.output_chn = Channel(name='arch_output_chn')
         self.done_chn = done_chn
 
         self.stimulus = Stimulus(self.arr_x, self.arr_y, self.chn_per_word,

@@ -17,7 +17,7 @@ class OSArch(Module):
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word
-        
+
         self.stat_type = 'show'
 
         # Instantiate DRAM IO channels
@@ -25,20 +25,20 @@ class OSArch(Module):
         self.output_chn = output_chn
 
         # Instantiate input deserializer and output serializer
-        self.ifmap_wr_chn = Channel()
-        self.weights_wr_chn = Channel()
-        self.bias_wr_chn = Channel()
+        self.ifmap_wr_chn = Channel(name='ifmap_wr_chn')
+        self.weights_wr_chn = Channel(name='weights_wr_chn')
+        self.bias_wr_chn = Channel(name='bias_wr_chn')
         self.deserializer = InputDeserializer(self.input_chn, self.ifmap_wr_chn,
                 self.weights_wr_chn, self.bias_wr_chn, arr_x, arr_y,
                 chn_per_word)
 
         # Instantiate GLB and GLB channels
-        self.ifmap_rd_chn = Channel(3)
+        self.ifmap_rd_chn = Channel(3, name='ifmap_rd_chn')
         self.ifmap_glb = GLB(self.ifmap_wr_chn, self.ifmap_rd_chn,
                 ifmap_glb_depth, self.arr_y, chn_per_word, name='ifmap_glb')
 
 
-        self.weights_rd_chn = Channel()
+        self.weights_rd_chn = Channel(name='weights_rd_chn')
         self.weights_glb = GLB(self.weights_wr_chn, self.weights_rd_chn, weight_glb_depth, self.arr_x, self.chn_per_word, name='weight_glb')
 
         # PE Array and local channel declaration
@@ -55,9 +55,9 @@ class OSArch(Module):
             self.pe_weight_chns.append(ModuleList())
             self.pe_out_chns.append(ModuleList())
             for x in range(self.arr_x):
-                self.pe_ifmap_chns[y].append(Channel(32))
-                self.pe_weight_chns[y].append(Channel(32))
-                self.pe_out_chns[y].append(Channel(32))
+                self.pe_ifmap_chns[y].append(Channel(32, name='pe_ifmap_chns_{}_{}'.format(x, y)))
+                self.pe_weight_chns[y].append(Channel(32, name='pe_filter_chns_{}_{}'.format(x, y)))
+                self.pe_out_chns[y].append(Channel(32, name='pe_psum_chns_{}_{}'.format(x, y)))
                 self.pe_array[y].append(
                     PE(x, y,
                         self.pe_ifmap_chns[y][x],

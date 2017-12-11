@@ -11,7 +11,7 @@ class PE(Module):
         self.loc_x = loc_x
         self.loc_y = loc_y
         #  self.is_first = self.loc_x == 0 and self.loc_y == 0
-        
+
         self.stat_type = 'aggregate'
         self.raw_stats = {'pe_nz_mac' : 0, 'pe_z_mac': 0}
 
@@ -43,8 +43,10 @@ class PE(Module):
             self.accumulator = self.accumulator + ifmap * weight
             if ifmap == 0 or weight == 0:
                 self.raw_stats['pe_z_mac'] += 1
+                # self.output_file.write('pe pe_{}_{} fire\n'.format(self.loc_x, self.loc_y));
             else:
                 self.raw_stats['pe_nz_mac'] += 1
+            self.output_file.write('pe pe_{}_{} fire\n'.format(self.loc_x, self.loc_y));
             self.cnt += 1
 
         if self.cnt == self.input_size + 1 and self.out_chn.vacancy():

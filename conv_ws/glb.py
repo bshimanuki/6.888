@@ -8,13 +8,13 @@ class IFMapGLB(Module):
         self.rd_chn = rd_chn
         self.chn_per_word = chn_per_word
         self.name = 'ifmap_glb'
-        
+
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, chn_per_word), 'rd': 0, 'wr': 0}
 
 
-        self.sram = SRAM(glb_depth, chn_per_word)
-        self.last_read = Channel(3)
+        self.sram = SRAM(glb_depth, chn_per_word, name=self.name)
+        self.last_read = Channel(3, name='last_read')
 
         self.image_size = (0, 0)
         self.filter_size = (0, 0)
@@ -129,12 +129,12 @@ class PSumGLB(Module):
         self.rd_chn = rd_chn
         self.chn_per_word = chn_per_word
         self.name = 'psum_glb'
-        
+
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, chn_per_word), 'rd': 0, 'wr': 0}
 
-        self.sram = SRAM(glb_depth, chn_per_word, nports=2)
-        self.last_read = Channel(3)
+        self.sram = SRAM(glb_depth, chn_per_word, nports=2, name=self.name)
+        self.last_read = Channel(3, name='last_read')
 
         self.filter_size = (0, 0)
         self.fmap_sets = 0
@@ -247,12 +247,12 @@ class WeightsGLB(Module):
         self.rd_chn = rd_chn
         self.chn_per_word = chn_per_word
         self.name = 'weight_glb'
-        
+
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, chn_per_word), 'rd': 0, 'wr': 0}
-        
-        self.sram = SRAM(glb_depth, chn_per_word)
-        self.last_read = Channel(3)
+
+        self.sram = SRAM(glb_depth, chn_per_word, name=self.name)
+        self.last_read = Channel(3, name='last_read')
 
         self.filter_size = (0, 0)
         self.in_sets = 0
@@ -329,8 +329,3 @@ class WeightsGLB(Module):
                 if self.iteration == num_iteration:
                     self.iteration = 0
                     self.wr_done = False
-
-
-
-
-

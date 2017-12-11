@@ -45,8 +45,8 @@ class WSArchTB(Module):
         self.arr_x = self.out_chn
         self.arr_y = self.in_chn
 
-        self.input_chn = Channel()
-        self.output_chn = Channel()
+        self.input_chn = Channel(name='arch_input_chn')
+        self.output_chn = Channel(name='arch_output_chn')
 
         self.stimulus = Stimulus(self.arr_x, self.arr_y, self.chn_per_word,
             self.input_chn, self.output_chn, self.done_chn)

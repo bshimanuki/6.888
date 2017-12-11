@@ -10,7 +10,7 @@ class PE(Module):
         # PE identifier (immutable)
         self.loc_x = loc_x
         self.loc_y = loc_y
-        
+
         self.stat_type = 'aggregate'
         self.raw_stats = {'pe_nz_mac' : 0, 'pe_z_mac': 0}
 
@@ -48,6 +48,7 @@ class PE(Module):
                     self.raw_stats['pe_nz_mac'] += 1
                 # print "PE(%d, %d) fired @ (%d, %d)" % (self.loc_x, self.loc_y,
                 #         self.iteration, self.fmap_idx)
+                self.output_file.write('pe pe_{}_{} fire\n'.format(self.loc_x, self.loc_y));
 
                 self.fmap_idx += 1
                 if self.fmap_idx == self.fmap_per_iteration:

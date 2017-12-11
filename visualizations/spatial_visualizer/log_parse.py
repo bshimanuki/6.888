@@ -29,8 +29,12 @@ def get_and_parse_log(file_path):
                 sram_name = line.split()[1]
                 if sram_name not in sram_name_map.keys():
                     sram_name_map[sram_name] = len(sram_name_map)
+            elif search("FC MODE", line) != None:
+                pass
+            elif search("CONV MODE", line) != None:
+                pass
             else:
-                print("offsensive line: ", line)
+                print("offensive line: ", line)
                 assert(False)
 
     # print("tick = ", type(tick))
@@ -69,6 +73,10 @@ def assert_valid_log(file_path):
                 if match(FORMAT["sram"], line) == None:
                     print(line)
                     assert(False)
+            elif search("FC MODE", line) != None:
+                print("FC MODE")
+            elif search("CONV MODE", line) != None:
+                print("CONV MODE")
             else:
-                print("offsensive line: ", line)
+                print("offensive line: ", line)
                 assert(False)

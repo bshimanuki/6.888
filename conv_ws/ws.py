@@ -17,7 +17,7 @@ class WSArch(Module):
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.chn_per_word = chn_per_word
-        
+
         self.stat_type = 'show'
 
         # Instantiate DRAM IO channels
@@ -25,29 +25,29 @@ class WSArch(Module):
         self.output_chn = output_chn
 
         # Instantiate input deserializer and output serializer
-        self.ifmap_wr_chn = Channel()
-        self.psum_wr_chn = Channel()
-        self.weights_wr_chn = Channel()
-        self.psum_chn = Channel(32)
+        self.ifmap_wr_chn = Channel(name='ifmap_wr_chn')
+        self.psum_wr_chn = Channel(name='psum_wr_chn')
+        self.weights_wr_chn = Channel(name='weights_wr_chn')
+        self.psum_chn = Channel(32, name='psum_chn')
 
         self.deserializer = InputDeserializer(self.input_chn, self.ifmap_wr_chn,
                 self.weights_wr_chn, self.psum_wr_chn, self.psum_chn, arr_x, arr_y,
                 chn_per_word)
 
-        self.psum_output_chn = Channel()
+        self.psum_output_chn = Channel(name='psum_output_chn')
         self.serializer = OutputSerializer(self.output_chn, self.psum_output_chn, self.psum_chn, self.arr_x, self.arr_y, self.chn_per_word)
 
         # Instantiate GLB and GLB channels
-        self.ifmap_rd_chn = Channel(3)
+        self.ifmap_rd_chn = Channel(3, name='ifmap_rd_chn')
         self.ifmap_glb = IFMapGLB(self.ifmap_wr_chn, self.ifmap_rd_chn,
                 ifmap_glb_depth, chn_per_word)
 
-        self.psum_rd_chn = Channel(3)
-        self.psum_noc_wr_chn = Channel()
+        self.psum_rd_chn = Channel(3, name='psum_rd_chn')
+        self.psum_noc_wr_chn = Channel(name='psum_noc_wr_chn')
         self.psum_glb = PSumGLB(self.psum_wr_chn, self.psum_noc_wr_chn, self.psum_rd_chn,
                 psum_glb_depth, chn_per_word)
 
-        self.weights_rd_chn = Channel(3)
+        self.weights_rd_chn = Channel(3, name='weights_rd_chn')
         self.weights_glb = WeightsGLB(self.weights_wr_chn, self.weights_rd_chn, weight_glb_depth, chn_per_word)
 
         # PE Array and local channel declaration
@@ -57,7 +57,7 @@ class WSArch(Module):
         self.pe_psum_chns = ModuleList()
         self.pe_psum_chns.append(ModuleList())
         for x in range(self.arr_x):
-            self.pe_psum_chns[0].append(Channel(32))
+            self.pe_psum_chns[0].append(Channel(32, name='pe_psum_chns_{}_0'.format(x)))
 
         # Actual array instantiation
         for y in range(self.arr_y):
@@ -66,9 +66,9 @@ class WSArch(Module):
             self.pe_filter_chns.append(ModuleList())
             self.pe_psum_chns.append(ModuleList())
             for x in range(self.arr_x):
-                self.pe_ifmap_chns[y].append(Channel(32))
-                self.pe_filter_chns[y].append(Channel(32))
-                self.pe_psum_chns[y+1].append(Channel(32))
+                self.pe_ifmap_chns[y].append(Channel(32, name='pe_ifmap_chns_{}_{}'.format(x, y)))
+                self.pe_filter_chns[y].append(Channel(32, name='pe_filter_chns_{}_{}'.format(x, y)))
+                self.pe_psum_chns[y+1].append(Channel(32, name='pe_psum_chns_{}_{}'.format(x, y)))
                 self.pe_array[y].append(
                     PE(x, y,
                         self.pe_ifmap_chns[y][x],

@@ -187,11 +187,15 @@ class MetaArchTB(Module):
 
             # handle conv to fc transition
             if isinstance(layer, FC) and self.fc_input is None and self.conv_inputs[0] is not None:
+                if self.name != None:
+                    self.output_file.write("FC MODE\n")
                 self.fc_input = np.zeros((self.batch_size, layer.input_size)).astype(np.int64)
                 for i in range(self.batch_size):
                     self.fc_input[i] = self.conv_inputs[i].reshape(layer.input_size)
 
             if isinstance(layer, Conv):
+                if self.name != None:
+                    self.output_file.write("CONV MODE\n")
                 if self.conv_inputs[self.batch_step] is None:
                     _, weights, bias = self.conv_tb.configure(layer.image_size, layer.filter_size, layer.in_chn, layer.out_chn)
                     self.conv_weights[self.cur_conv] = weights
