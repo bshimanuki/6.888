@@ -17,3 +17,7 @@ rm log.txt
 python run.py
 cd visualizations/spatial_visualizer/
 python gui.py ../../log.txt meta_tb_pos.txt
+
+TEMPORAL VISUALIZER
+open google chrome and go to "about://tracing"
+load trace.json in temporal_visualizer folder
