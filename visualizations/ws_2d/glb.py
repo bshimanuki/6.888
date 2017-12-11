@@ -13,7 +13,7 @@ class IFMapGLB(Module):
         self.raw_stats = {'size' : (glb_depth, chn_per_word), 'rd': 0, 'wr': 0}
 
 
-        self.sram = SRAM(glb_depth, chn_per_word)
+        self.sram = SRAM(glb_depth, chn_per_word, name=self.name)
         self.last_read = Channel(3, name='last_read')
 
         self.image_size = (0, 0)
@@ -54,7 +54,6 @@ class IFMapGLB(Module):
                 data = self.wr_chn.pop()
                 # print "ifmap_glb wr"
                 self.raw_stats['wr'] += 1
-                print("sram ifmap_glb write")
                 # Write ifmap to glb
                 # print "ifmap_to_glb: ", in_sets, self.fmap_idx, self.curr_set
                 addr = self.fmap_sets*self.fmap_idx + self.curr_set
@@ -102,7 +101,6 @@ class IFMapGLB(Module):
                 # print "ifmap rd glb", data
                 self.rd_chn.push(data)
                 self.raw_stats['rd'] += 1
-                print("sram ifmap_glb read")
 
 
 class PSumGLB(Module):
@@ -116,7 +114,7 @@ class PSumGLB(Module):
         self.stat_type = 'show'
         self.raw_stats = {'size' : (glb_depth, chn_per_word), 'rd': 0, 'wr': 0}
 
-        self.sram = SRAM(glb_depth, chn_per_word, nports=2)
+        self.sram = SRAM(glb_depth, chn_per_word, nports=2, name=self.name)
         self.last_read = Channel(3, name='last_read')
 
         self.filter_size = (0, 0)
@@ -154,7 +152,6 @@ class PSumGLB(Module):
             if self.dram_wr_chn.valid():
                 data = self.dram_wr_chn.pop()
                 self.raw_stats['wr'] += 1
-                print("sram psum_glb write")
                 # print "psum_glb wr"
                 # Write ifmap to glb
                 # print "ifmap_to_glb: ", in_sets, self.fmap_idx, self.curr_set
@@ -193,7 +190,6 @@ class PSumGLB(Module):
                         [e for e in self.sram.response()]
                 self.rd_chn.push(data)
                 self.raw_stats['rd'] += 1
-                print("sram psum_glb read")
                 # print "psum rd glb", data
 
             # If we can pull an elemnt off of the write channel, do it
@@ -203,7 +199,6 @@ class PSumGLB(Module):
                 # print "psum_to_glb: ", self.fmap_wr_idx, self.wr_set
                 data = self.noc_wr_chn.pop()
                 self.raw_stats['wr'] += 1
-                print("sram psum_glb write")
                 addr = self.fmap_sets*self.fmap_wr_idx + self.wr_set
                 # print "psum wr glb", self.fmap_wr_idx, self.wr_set, data
                 self.wr_set += 1
@@ -229,7 +224,7 @@ class WeightsGLB(Module):
         if self.wr_chn.valid() and self.rd_chn.vacancy():
             data = self.wr_chn.pop()
             self.raw_stats['wr'] += 1
-            print("sram weight_glb write")
+            # print("sram weight_glb write")
             self.rd_chn.push(data)
             self.raw_stats['rd'] += 1
-            print("sram weight_glb read")
+            # print("sram weight_glb read")

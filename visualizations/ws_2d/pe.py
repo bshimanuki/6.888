@@ -47,7 +47,7 @@ class PE(Module):
                 self.raw_stats['pe_mac'] += 1
                 # print "PE(%d, %d) fired @ (%d, %d)" % (self.loc_x, self.loc_y,
                 #         self.iteration, self.fmap_idx)
-                print("pe pe_{}_{} fire".format(self.loc_x, self.loc_y))
+                self.output_file.write('pe pe_{}_{} fire\n'.format(self.loc_x, self.loc_y));
 
                 self.fmap_idx += 1
                 if self.fmap_idx == self.fmap_per_iteration:
