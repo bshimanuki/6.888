@@ -7,6 +7,7 @@ def get_and_parse_log(file_path):
     chn_name_map = {}
     pe_name_map = {}
     sram_name_map = {}
+    num_layers = 0
     for line in f:
         if search("NTick", line) != None:
             continue
@@ -30,9 +31,9 @@ def get_and_parse_log(file_path):
                 if sram_name not in sram_name_map.keys():
                     sram_name_map[sram_name] = len(sram_name_map)
             elif search("FC MODE", line) != None:
-                pass
+                num_layers += 1
             elif search("CONV MODE", line) != None:
-                pass
+                num_layers += 1
             else:
                 print("offensive line: ", line)
                 assert(False)
@@ -41,7 +42,7 @@ def get_and_parse_log(file_path):
     # print("chn_name_map: ", chn_name_map)
     # print("pe_name_map: ", pe_name_map)
     # print("sram_name_map: ", sram_name_map)
-    return tick_list, chn_name_map, pe_name_map, sram_name_map, tick
+    return tick_list, chn_name_map, pe_name_map, sram_name_map, tick, num_layers
 
 
 FORMAT = {

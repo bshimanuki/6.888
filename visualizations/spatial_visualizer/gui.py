@@ -10,7 +10,7 @@ from log_parse import get_and_parse_log, assert_valid_log
 class Base(tk.Frame):
     '''Illustrate how to drag items on a Tkinter canvas'''
 
-    def __init__(self, parent, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, arr_x, arr_y):
+    def __init__(self, parent, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, arr_x, arr_y):
         self.parent = parent
         tk.Frame.__init__(self, parent)
         self.tick_list = tick_list
@@ -19,6 +19,7 @@ class Base(tk.Frame):
         self.pe_name_map = pe_name_map
         self.sram_name_map = sram_name_map
         self.ntick = ntick
+        self.num_layers = num_layers
         self.arr_x = arr_x
         self.arr_y = arr_y
         self.configure(background='grey')
@@ -56,6 +57,11 @@ class Base(tk.Frame):
         self._add_save_button(positions_file="SAVED_POSITIONS.txt")
         self._add_label_checkboxes()
         self._add_background()
+
+        # Disable if not using meta_tb
+        self.curr_layer = 0
+        self.layers = ["N/A"]*self.num_layers
+        self._add_layer_indicator()
 
         # DEBUG
         self.count = 0
@@ -229,6 +235,19 @@ class Base(tk.Frame):
         self.actual_img = self.canvas.create_image(width/2, height/2, image = self.img)
         self.canvas.lower(self.actual_img)
 
+    def _add_layer_indicator(self, layer_name="N/A", fill="grey"):
+        if layer_name == "FC":
+            fill = "blue"
+        elif layer_name == "CONV":
+            fill = "orange"
+        x = 800
+        y = 50
+        WIDTH = 120
+        HEIGHT = 30
+        self.layer_box = self.canvas.create_rectangle(x-WIDTH, y-HEIGHT, x+WIDTH, y+HEIGHT,
+                                outline="black", fill=fill, activefill="white")
+        self.layer_text = self.canvas.create_text(x, y, text="Layer is " + layer_name)
+
     # Entry point for handling ALL individual updates
     # Currently supports:
     #   1) chn # push/pop
@@ -269,10 +288,24 @@ class Base(tk.Frame):
 
         elif search("CONV MODE", line) != None:
             # Switched to CONV MODE
-            print("CONV MODE")
+            if not reverse:
+                self.layers[self.curr_layer] = "CONV"
+                self._add_layer_indicator("CONV")
+                self.curr_layer += 1
+            else:
+                layer_type = self.layers[self.curr_layer - 2]
+                self._add_layer_indicator(layer_type)
+                self.curr_layer -= 1
         elif search("FC MODE", line) != None:
             # Switched to FC MODE
-            print("FC MODE")
+            if not reverse:
+                self.layers[self.curr_layer] = "FC"
+                self._add_layer_indicator("FC")
+                self.curr_layer += 1
+            else:
+                layer_type = self.layers[self.curr_layer - 2]
+                self._add_layer_indicator(layer_type)
+                self.curr_layer -= 1
 
 
     def tick(self):
@@ -294,11 +327,11 @@ if __name__ == "__main__":
 
     # Make sure log format is valid
     assert_valid_log(file_path)
-    tick_list, chn_name_map, pe_name_map, sram_name_map, ntick = \
+    tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers = \
         get_and_parse_log(file_path)
 
     root = tk.Tk()
-    base = Base(root, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, 8, 4)
+    base = Base(root, tick_list, chn_name_map, pe_name_map, sram_name_map, ntick, num_layers, 8, 4)
     print("tick 0")
     base.tick()
     root.mainloop()
